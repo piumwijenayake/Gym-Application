@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         let navVC = UINavigationController(rootViewController: WelcomeViewController())
         navVC.navigationBar.prefersLargeTitles = true
-        
+        navVC.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navVC.viewControllers.first?.navigationItem.largeTitleDisplayMode = .always
         window.rootViewController = navVC
         

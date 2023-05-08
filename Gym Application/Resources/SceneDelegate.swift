@@ -19,12 +19,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         let navVC = UINavigationController(rootViewController: WelcomeViewController())
         navVC.navigationBar.prefersLargeTitles = true
-        let titleFont = UIFont(name: "HelveticaNeue-Bold", size: 20)!
-            let attributes = [
-                NSAttributedString.Key.foregroundColor: UIColor.red,
-                NSAttributedString.Key.font: titleFont
-            ]
-        navVC.navigationController?.navigationBar.titleTextAttributes = attributes
+        navVC.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
        
 
         navVC.viewControllers.first?.navigationItem.largeTitleDisplayMode = .always
