@@ -15,14 +15,16 @@ class WelcomeViewController: UIViewController {
         //this will be displayed only when the state is normal
         button.setTitle("Lets Get Started", for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.translatesAutoresizingMaskIntoConstraints = false
         return button
+        
         
     }()
     private let imageView: UIImageView={
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.image = UIImage(named: "wallpaper")
-       
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         
         return imageView
         
@@ -105,7 +107,7 @@ class WelcomeViewController: UIViewController {
         view.addSubview(subLabel)
         view.addSubview(signInButton)
         signInButton.addTarget(self, action: #selector(didSignIn), for: .touchUpInside)
-       
+       viewDidLayoutContraints()
         // Do any additional setup after loading the view.
         
     }
@@ -120,16 +122,25 @@ class WelcomeViewController: UIViewController {
              self.subLabel.center.y -= (self.view.frame.size.height / 2) - 100 // Move the label down to the center of the screen
          }, completion: nil)
     }
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        imageView.frame = view.bounds
-        signInButton.frame = CGRect(
-            x: 20, y: view.height-50-view.safeAreaInsets.bottom,
-            width: view.width-40,
-            height: 50)
+    //adding layout constraints
+     func viewDidLayoutContraints() {
+            // imageView.frame = view.bounds
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: view.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+            signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            signInButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            signInButton.heightAnchor.constraint(equalToConstant: 50)
+        ])
+        
     }
     @objc func didSignIn(){
-        let vc = GenderController()
+        let vc = TabBarControllerViewController()
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
