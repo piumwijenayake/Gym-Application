@@ -40,6 +40,8 @@ class TabBarControllerViewController: UITabBarController {
         nav2.title = "Search"
         nav3.title = "BMI Calculator"
         
+        //changing color
+        
         tabBar.tintColor = .white
         UITabBar.appearance().tintColor = .white
         UITabBar.appearance().unselectedItemTintColor = .gray

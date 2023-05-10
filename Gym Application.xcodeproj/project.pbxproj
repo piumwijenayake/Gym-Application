@@ -12,7 +12,7 @@
 		0220B1DA2A06B54A00706507 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220B1D92A06B54A00706507 /* ViewController.swift */; };
 		0220B1DF2A06B54C00706507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0220B1DE2A06B54C00706507 /* Assets.xcassets */; };
 		0220B1E22A06B54C00706507 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0220B1E02A06B54C00706507 /* LaunchScreen.storyboard */; };
-		02A83AE22A079F8E00F6786C /* GenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A83AE12A079F8E00F6786C /* GenderController.swift */; };
+		02890A122A0B7F7900B02C35 /* CatergoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */; };
 		02AC37872A07F8C0003792DC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AC37862A07F8C0003792DC /* WelcomeViewController.swift */; };
 		02AC37892A0815E0003792DC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AC37882A0815E0003792DC /* Extensions.swift */; };
 		02C3296C2A0ABDF40084B077 /* TabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3296B2A0ABDF40084B077 /* TabBarControllerViewController.swift */; };
@@ -29,7 +29,7 @@
 		0220B1DE2A06B54C00706507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0220B1E12A06B54C00706507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0220B1E32A06B54C00706507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		02A83AE12A079F8E00F6786C /* GenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderController.swift; sourceTree = "<group>"; };
+		02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryViewController.swift; sourceTree = "<group>"; };
 		02AC37862A07F8C0003792DC /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		02AC37882A0815E0003792DC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		02C3296B2A0ABDF40084B077 /* TabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerViewController.swift; sourceTree = "<group>"; };
@@ -140,8 +140,8 @@
 		02AC37832A07EAE4003792DC /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				02A83AE12A079F8E00F6786C /* GenderController.swift */,
 				02AC37862A07F8C0003792DC /* WelcomeViewController.swift */,
+				02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -228,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0220B1DA2A06B54A00706507 /* ViewController.swift in Sources */,
+				02890A122A0B7F7900B02C35 /* CatergoryViewController.swift in Sources */,
 				02AC37892A0815E0003792DC /* Extensions.swift in Sources */,
 				02AC37872A07F8C0003792DC /* WelcomeViewController.swift in Sources */,
 				02C329722A0ABFFD0084B077 /* BMIViewController.swift in Sources */,
@@ -235,7 +236,6 @@
 				02C3296E2A0ABF710084B077 /* HomeViewController.swift in Sources */,
 				0220B1D62A06B54A00706507 /* AppDelegate.swift in Sources */,
 				02C3296C2A0ABDF40084B077 /* TabBarControllerViewController.swift in Sources */,
-				02A83AE22A079F8E00F6786C /* GenderController.swift in Sources */,
 				0220B1D82A06B54A00706507 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

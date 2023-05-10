@@ -35,8 +35,8 @@ class WelcomeViewController: UIViewController {
     private let logo: UIImageView={
         let logo = UIImageView(image: UIImage(named: "logo"))
         logo.contentMode = .scaleAspectFill
-        logo.center = CGPoint(x: 70, y: 100)
-        
+        ///logo.center = CGPoint(x: 70, y: 100)
+        logo.translatesAutoresizingMaskIntoConstraints = false
         
         
         return logo
@@ -46,14 +46,14 @@ class WelcomeViewController: UIViewController {
         
     }()
     private let label: UILabel={
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 32))
+        let label = UILabel()
    
         label.center = CGPoint(x: 60, y: 894)
         label.textAlignment = .center
         label.text = "Stay Fit"
-        label.font = UIFont.boldSystemFont(ofSize: 30)
+        label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
-        
+        label.translatesAutoresizingMaskIntoConstraints = false
         
         return label
         
@@ -62,14 +62,13 @@ class WelcomeViewController: UIViewController {
         
     }()
     private let logoName: UILabel={
-        let logoName = UILabel(frame: CGRect(x: 0, y: 0, width: 290, height: 32))
-   
+        let logoName = UILabel()
         logoName.center = CGPoint(x: 120, y: 194)
         logoName.textAlignment = .center
-        logoName.text = "Healthy Fitness"
+        logoName.text = "Fitness Fit"
         logoName.font = UIFont.boldSystemFont(ofSize: 30)
         logoName.textColor = .white
-        
+        logoName.translatesAutoresizingMaskIntoConstraints = false
         
         return logoName
         
@@ -88,7 +87,7 @@ class WelcomeViewController: UIViewController {
         subLabel.text = "Bear witness to Infinity Fitness"
         subLabel.font = UIFont.boldSystemFont(ofSize: 20)
         subLabel.textColor = .white
-        
+        subLabel.translatesAutoresizingMaskIntoConstraints = true
         
         return subLabel
         
@@ -107,10 +106,11 @@ class WelcomeViewController: UIViewController {
         view.addSubview(subLabel)
         view.addSubview(signInButton)
         signInButton.addTarget(self, action: #selector(didSignIn), for: .touchUpInside)
-       viewDidLayoutContraints()
+        viewDidLayoutContraints()
         // Do any additional setup after loading the view.
         
     }
+    //adding animation
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -118,9 +118,11 @@ class WelcomeViewController: UIViewController {
         UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseOut], animations: {
              self.label.center.y -= (self.view.frame.size.height / 2) - 100 // Move the label down to the center of the screen
          }, completion: nil)
+        
         UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseOut], animations: {
              self.subLabel.center.y -= (self.view.frame.size.height / 2) - 100 // Move the label down to the center of the screen
          }, completion: nil)
+      
     }
     //adding layout constraints
      func viewDidLayoutContraints() {
@@ -131,16 +133,38 @@ class WelcomeViewController: UIViewController {
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+             
+            logo.leftAnchor.constraint(equalTo: view.leftAnchor,constant: -10),
+            logo.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: -320),
+            
+            logoName.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 11),
+            logoName.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: -280),
+            
+            
+            
+            label.leftAnchor.constraint(equalTo: view.leftAnchor,constant: -30),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 100),
+            label.widthAnchor.constraint(equalToConstant: 200),
+            label.heightAnchor.constraint(equalToConstant: 32),
+            
+            subLabel.leftAnchor.constraint(equalTo: view.leftAnchor,constant: -30),
+            subLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 300),
+            subLabel.widthAnchor.constraint(equalToConstant: 200),
+            subLabel.heightAnchor.constraint(equalToConstant: 80),
             
             signInButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             signInButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             signInButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
-            signInButton.heightAnchor.constraint(equalToConstant: 50)
+            signInButton.heightAnchor.constraint(equalToConstant: 50),
+            
+            
+            
+        
         ])
         
     }
     @objc func didSignIn(){
-        let vc = TabBarControllerViewController()
+        let vc = CatergoryViewController()
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }
