@@ -38,15 +38,15 @@ class CatergoryViewController: UIViewController, UICollectionViewDataSource,UICo
             
         
     }()
-    let images = ["catergory1","catergory2"]
+    let images = ["catergory0","catergory1","catergory2","catergory3","catergory4"]
     var collectionView : UICollectionView!
     
     override func viewDidLoad() {
-           super.viewDidLoad()
-           let layout = UICollectionViewFlowLayout()
-         collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        super.viewDidLoad()
+        let layout = UICollectionViewFlowLayout()
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
 
-          collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.backgroundColor = .black
         
         view.addSubview(titleName)
@@ -56,13 +56,13 @@ class CatergoryViewController: UIViewController, UICollectionViewDataSource,UICo
         
            
            // Set Auto Layout constraints for the logoName label
-           NSLayoutConstraint.activate([
-            titleName.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-            titleName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
+        NSLayoutConstraint.activate([
+        titleName.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
+        titleName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
                         titleName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -230),
                         
                         // Constraints for titleSub
-           titleSub.topAnchor.constraint(equalTo: titleName.bottomAnchor, constant: 10),
+        titleSub.topAnchor.constraint(equalTo: titleName.bottomAnchor, constant: 10),
         titleSub.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
         titleSub.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -170),
                         
@@ -89,7 +89,10 @@ class CatergoryViewController: UIViewController, UICollectionViewDataSource,UICo
         cell.catergoryImageView.image = UIImage(named: images[indexPath.row])
         return cell
     }
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 420/2 - 20, height: 290)
+
+    }
 
     /*
     // MARK: - Navigation
