@@ -45,52 +45,38 @@ class WelcomeViewController: UIViewController {
             
         
     }()
-    private let label: UILabel={
+    private let label: UILabel = {
         let label = UILabel()
-   
-        label.center = CGPoint(x: 60, y: 894)
         label.textAlignment = .center
         label.text = "Stay Fit"
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
         label.translatesAutoresizingMaskIntoConstraints = false
-        
         return label
-        
-            
-            
-        
     }()
-    private let logoName: UILabel={
+
+    private let logoName: UILabel = {
         let logoName = UILabel()
-        logoName.center = CGPoint(x: 120, y: 194)
         logoName.textAlignment = .center
         logoName.text = "Fitness Fit"
         logoName.font = UIFont.boldSystemFont(ofSize: 30)
         logoName.textColor = .white
         logoName.translatesAutoresizingMaskIntoConstraints = false
-        
         return logoName
-        
-            
-            
-        
     }()
+
+
     //Bear witness to Infinity Fitness.
     private let subLabel: UILabel={
-        let subLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 200, height: 80))
-   
-        subLabel.center = CGPoint(x: 80, y: 950)
-        subLabel.textAlignment = .center
-        subLabel.numberOfLines = 2
-        subLabel.lineBreakMode = .byWordWrapping
-        subLabel.text = "Bear witness to Infinity Fitness"
-        subLabel.font = UIFont.boldSystemFont(ofSize: 20)
-        subLabel.textColor = .white
-        subLabel.translatesAutoresizingMaskIntoConstraints = true
-        
-        return subLabel
-        
+        let subLabel = UILabel()
+         subLabel.textAlignment = .center
+         subLabel.numberOfLines = 2
+         subLabel.lineBreakMode = .byWordWrapping
+         subLabel.text = "Bear witness to Infinity Fitness"
+         subLabel.font = UIFont.boldSystemFont(ofSize: 20)
+         subLabel.textColor = .white
+         subLabel.translatesAutoresizingMaskIntoConstraints = false
+         return subLabel
             
             
         
@@ -111,19 +97,7 @@ class WelcomeViewController: UIViewController {
         
     }
     //adding animation
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // Animate the label's position and float into view
-        UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseOut], animations: {
-             self.label.center.y -= (self.view.frame.size.height / 2) - 100 // Move the label down to the center of the screen
-         }, completion: nil)
-        
-        UIView.animate(withDuration: 1.0, delay: 0, options: [.curveEaseOut], animations: {
-             self.subLabel.center.y -= (self.view.frame.size.height / 2) - 100 // Move the label down to the center of the screen
-         }, completion: nil)
-      
-    }
+    
     //adding layout constraints
      func viewDidLayoutContraints() {
             // imageView.frame = view.bounds
@@ -133,22 +107,20 @@ class WelcomeViewController: UIViewController {
             imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-             
-            logo.leftAnchor.constraint(equalTo: view.leftAnchor,constant: -10),
-            logo.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: -320),
-            
-            logoName.leftAnchor.constraint(equalTo: view.leftAnchor,constant: 11),
-            logoName.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: -280),
-            
-            
-            
-            label.leftAnchor.constraint(equalTo: view.leftAnchor,constant: -30),
-            label.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 100),
+
+            logo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
+            logo.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -320),
+
+            logoName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 11),
+            logoName.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -280),
+
+            label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -49),
+            label.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 90),
             label.widthAnchor.constraint(equalToConstant: 200),
             label.heightAnchor.constraint(equalToConstant: 32),
-            
-            subLabel.leftAnchor.constraint(equalTo: view.leftAnchor,constant: -30),
-            subLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 300),
+
+            subLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -9),
+            subLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 140),
             subLabel.widthAnchor.constraint(equalToConstant: 200),
             subLabel.heightAnchor.constraint(equalToConstant: 80),
             
@@ -164,7 +136,7 @@ class WelcomeViewController: UIViewController {
         
     }
     @objc func didSignIn(){
-        let vc = CatergoryViewController()
+        let vc = SignInViewController()
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }

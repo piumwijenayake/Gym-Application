@@ -8,10 +8,27 @@
 import UIKit
 
 class HomeViewController: UIViewController {
+    
 
+    private let titleName: UILabel={
+        let titleName = UILabel()
+        titleName.center = CGPoint(x: 120, y: 100)
+        titleName.textAlignment = .center
+        titleName.text = "Home"
+        titleName.font = UIFont.boldSystemFont(ofSize: 30)
+        titleName.textColor = .black
+        titleName.translatesAutoresizingMaskIntoConstraints = false
+        
+        return titleName
+        
+            
+            
+        
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
+        self.view.backgroundColor = .white
+        view.addSubview(titleName)
         
 
         // Do any additional setup after loading the view.

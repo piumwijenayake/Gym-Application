@@ -39,6 +39,8 @@ class CatergoryViewController: UIViewController, UICollectionViewDataSource,UICo
         
     }()
     let images = ["catergory0","catergory1","catergory2","catergory3","catergory4"]
+    let viewControllers = ["cardio", "strength", "yoga","data"] // Add your view controller classes or identifiers here
+
     var collectionView : UICollectionView!
     
     override func viewDidLoad() {
@@ -55,26 +57,22 @@ class CatergoryViewController: UIViewController, UICollectionViewDataSource,UICo
        
         
            
-           // Set Auto Layout constraints for the logoName label
-        NSLayoutConstraint.activate([
-        titleName.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20),
-        titleName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-                        titleName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -230),
+           // Set Auto Layout constraints f NSLayoutConstraint.activate([
+        titleName.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20).isActive = true
+        titleName.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        titleName.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -230).isActive = true
                         
                         // Constraints for titleSub
-        titleSub.topAnchor.constraint(equalTo: titleName.bottomAnchor, constant: 10),
-        titleSub.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),
-        titleSub.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -170),
+        titleSub.topAnchor.constraint(equalTo: titleName.bottomAnchor, constant: 10).isActive = true
+        titleSub.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        titleSub.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -170).isActive = true
                         
                         // Constraints for collectionView
-        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-        collectionView.topAnchor.constraint(equalTo: titleSub.bottomAnchor, constant: 30),
-        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive=true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive=true
+        collectionView.topAnchor.constraint(equalTo: titleSub.bottomAnchor, constant: 30).isActive=true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive=true
              
-               
-            
-           ])
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.register(CustomCell.self, forCellWithReuseIdentifier: "cell")
@@ -92,6 +90,11 @@ class CatergoryViewController: UIViewController, UICollectionViewDataSource,UICo
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 420/2 - 20, height: 290)
 
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath:IndexPath ) {
+        let selectedText = viewControllers[indexPath.item]
+        print(selectedText) // Displcontroller
+                
     }
 
     /*
@@ -111,16 +114,13 @@ class CustomCell : UICollectionViewCell {
         super.init(frame:frame)
         addSubview(catergoryImageView)
         catergoryImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-  
-            
-             catergoryImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
-             catergoryImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
-             catergoryImageView.topAnchor.constraint(equalTo: topAnchor),
-             catergoryImageView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        catergoryImageView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive=true
+        catergoryImageView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive=true
+        catergoryImageView.topAnchor.constraint(equalTo: topAnchor).isActive=true
+        catergoryImageView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive=true
             
          
-        ])
+     
     }
     
     
