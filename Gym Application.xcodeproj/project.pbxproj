@@ -12,7 +12,6 @@
 		0220B1DA2A06B54A00706507 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220B1D92A06B54A00706507 /* ViewController.swift */; };
 		0220B1DF2A06B54C00706507 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0220B1DE2A06B54C00706507 /* Assets.xcassets */; };
 		0220B1E22A06B54C00706507 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0220B1E02A06B54C00706507 /* LaunchScreen.storyboard */; };
-		0226930A2A0F9D210032F393 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022693092A0F9D210032F393 /* WebViewController.swift */; };
 		022C27662A0EBF8300277897 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022C27652A0EBF8300277897 /* SignInViewController.swift */; };
 		022C27682A0EC48D00277897 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022C27672A0EC48D00277897 /* CreateAccountViewController.swift */; };
 		022C276A2A0EC5BF00277897 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022C27692A0EC5BF00277897 /* AuthView.swift */; };
@@ -42,7 +41,6 @@
 		0220B1DE2A06B54C00706507 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0220B1E12A06B54C00706507 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0220B1E32A06B54C00706507 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		022693092A0F9D210032F393 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		022C27652A0EBF8300277897 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		022C27672A0EC48D00277897 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
 		022C27692A0EC5BF00277897 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */,
 				022C27652A0EBF8300277897 /* SignInViewController.swift */,
 				022C27672A0EC48D00277897 /* CreateAccountViewController.swift */,
-				022693092A0F9D210032F393 /* WebViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -288,7 +285,6 @@
 				02F283482A0FFA54004B39AD /* AuthService.swift in Sources */,
 				02F2834A2A100043004B39AD /* RegisterUserRequest.swift in Sources */,
 				022C27702A0ED3F400277897 /* CustomButton.swift in Sources */,
-				0226930A2A0F9D210032F393 /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
