@@ -30,6 +30,7 @@ class SignInViewController: UIViewController {
            self.signInButton.addTarget(self, action: #selector(didSignIn), for: .touchUpInside)
            self.newUserButton.addTarget(self, action: #selector(didTapNewUser), for: .touchUpInside)
                self.forgotPasswordButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
+           
        }
        
        override func viewWillAppear(_ animated: Bool) {
@@ -39,7 +40,7 @@ class SignInViewController: UIViewController {
        
        // MARK: - UI Setup
        private func setupUI() {
-           self.view.backgroundColor = .black
+          view.backgroundColor = .black
            
            self.view.addSubview(headerView)
            self.view.addSubview(usernameField)
@@ -92,10 +93,10 @@ class SignInViewController: UIViewController {
     @objc func didSignIn(){
         let enteredEmail = usernameField.text
         let enteredPassword = passwordField.text
-        let hardcodedEmail = "test@example.com"
-        let hardcodedPassword = "password123"
+        let hardcodedEmail = "test"
+        let hardcodedPassword = "pass123"
         if enteredEmail == hardcodedEmail && enteredPassword == hardcodedPassword {
-            let vc = HomeViewController()
+            let vc = GenderViewController()
 
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: false, completion: nil)

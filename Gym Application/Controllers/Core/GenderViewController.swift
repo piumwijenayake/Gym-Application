@@ -4,58 +4,129 @@
 //
 //  Created by Piumi Wijenayake on 2023-05-14.
 //
-
 import UIKit
 
 class GenderViewController: UIViewController {
-
-    private let headerView = AuthView(title: "Lets Get to know more about you", subTitle: "Tell Us Your Gender")
-    private var imageTilesView: ImageTilesView!
+    private var images: [UIImage] = []
+    private let titles = ["Female", "Male"] // Array of titles
+    
+    private let headerView = Header(title: "Let's Get To Know More", subTitle: "Give Us Your Gender")
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal // Set scroll direction to horizontal
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.register(CustomCollectionViewCell.self, forCellWithReuseIdentifier: CustomCollectionViewCell.identifier)
+        
+        collectionView.alwaysBounceHorizontal = true // Allow horizontal scrolling
+        return collectionView
+    }()
+    private let nextButton = CustomButton(title: "Next", hasBackground: true, fontSize: .big)
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-        imageTilesView = ImageTilesView()
-        self.setupUI()
-
-        // Do any additional setup after loading the view.
-    }
-    private func setupUI() {
-        self.view.addSubview(headerView)
-        self.view.addSubview(imageTilesView)
-        self.imageTilesView.translatesAutoresizingMaskIntoConstraints = false
+        setupUI()
         
+        let imageNames = ["femaleVector", "maleVector"]
+        for name in imageNames {
+            if let image = UIImage(named: name) {
+                images.append(image)
+            } else {
+                print("Image '\(name)' not found")
+                // Handle the missing image case as per your requirement
+            }
+        }
         
-             // Add constraints for ImageTilesView
-             NSLayoutConstraint.activate([
-                 imageTilesView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-                 imageTilesView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-                 imageTilesView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                 imageTilesView.heightAnchor.constraint(equalToConstant: 100)
-             ])
-             
-             // Add image tiles to ImageTilesView
-             let image1 = UIImage(named: "image1")
-             let image2 = UIImage(named: "image2")
-             
-        self.imageTilesView.addImageTile(image: image1)
-        self.imageTilesView.addImageTile(image: image2)
-             
-             // Set the didSelectImage closure to handle tap events
-             imageTilesView.didSelectImage = { selectedImage in
-                 // Handle the selected image
-                 print("Selected image: \(selectedImage)")
-             }
-        
+        collectionView.dataSource = self
+        collectionView.delegate = self
+        self.nextButton.addTarget(self, action: #selector(circularButtonTapped), for: .touchUpInside)
+       
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.isHidden = true
     }
-    */
+    
+    private func setupUI() {
+        view.backgroundColor = .black
+        
+        collectionView.backgroundColor = .black
+        view.addSubview(headerView)
+        view.addSubview(collectionView)
+        view.addSubview(nextButton)
+                
+                // Set up the frame or constraints of the circular button view
+                
+           
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            headerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            headerView.centerYAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+           
+            headerView.heightAnchor.constraint(equalToConstant: 222),
+                    
+            collectionView.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 20),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.heightAnchor.constraint(equalToConstant: 390),// Adjust the height as per your
+            
+            nextButton.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 22),
+            nextButton.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+            nextButton.heightAnchor.constraint(equalToConstant: 55),
+            nextButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
 
+           
+        ])
+    }
+    @objc private func circularButtonTapped() {
+           // Handle circular button tap event
+           print("Circular button tapped")
+       }
 }
+
+extension GenderViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CustomCollectionViewCell.identifier, for: indexPath) as? CustomCollectionViewCell else {
+            fatalError("Failed to dequeue CustomCollectionViewCell")
+        }
+        
+        let image = images[indexPath.row]
+        let title = titles[indexPath.row] // Get the corresponding title from the array
+        
+        cell.configure(with: image, title: title)
+        
+        return cell
+    }
+}
+
+extension GenderViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width: CGFloat = 210
+        let height = collectionView.bounds.height // Set the height to match the collection view's height
+        
+        return CGSize(width: width, height: height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
+    
+}
+
+
+
+
