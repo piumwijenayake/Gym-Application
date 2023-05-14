@@ -113,10 +113,7 @@ class SignInViewController: UIViewController {
     }
     
        @objc private func didTapNewUser() {
-           let vc = CreateAccountViewController()
-
-            vc.modalPresentationStyle = .fullScreen
-            self.present(vc, animated: false, completion: nil)
+           print("DEBUG PRINT:", "didTapForgotPassword")
        }
        
        @objc private func didTapForgotPassword() {
