@@ -6,6 +6,7 @@
 //
 
 import UIKit
+
 class CustomCollectionViewCell: UICollectionViewCell {
     static let identifier = "CustomCollectionViewCell"
   
@@ -27,38 +28,56 @@ class CustomCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    public func configure(with image: UIImage, title: String) {
-        self.myImageView.image = image
-        self.titleLabel.text = title
-        self.setupUI()
+    override var isSelected: Bool {
+        didSet {
+            updateSelection()
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupUI() {
-        self.backgroundColor = .white
+        backgroundColor = .white
         
-        self.addSubview(myImageView)
-        self.addSubview(titleLabel)
+        addSubview(myImageView)
+        addSubview(titleLabel)
         
         myImageView.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            myImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            myImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            myImageView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            myImageView.heightAnchor.constraint(equalToConstant: 340), // Adjust the height as desired
+            myImageView.topAnchor.constraint(equalTo: topAnchor),
+            myImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            myImageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            myImageView.heightAnchor.constraint(equalToConstant: 340),
                        
-            titleLabel.topAnchor.constraint(equalTo: myImageView.bottomAnchor, constant: -35), // Adjus 
-            titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            titleLabel.topAnchor.constraint(equalTo: myImageView.bottomAnchor, constant: -35),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    func configure(with image: UIImage, title: String) {
+        myImageView.image = image
+        titleLabel.text = title
+    }
+    
+    private func updateSelection() {
+        contentView.layer.borderWidth = isSelected ? 8.0 : 0.0
+        contentView.layer.borderColor = UIColor.blue.cgColor
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        self.myImageView.image = nil
-        self.titleLabel.text = nil
+        myImageView.image = nil
+        titleLabel.text = nil
     }
 }
-

@@ -9,7 +9,7 @@ import UIKit
 class GenderViewController: UIViewController {
     private var images: [UIImage] = []
     private let titles = ["Female", "Male"] // Array of titles
-    
+    private var selectedIndexPath: IndexPath?
     private let headerView = Header(title: "Let's Get To Know More", subTitle: "Give Us Your Gender")
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -105,7 +105,34 @@ extension GenderViewController: UICollectionViewDelegate, UICollectionViewDataSo
         
         cell.configure(with: image, title: title)
         
+        // Highlight the selected cell
+        if indexPath == selectedIndexPath {
+            cell.contentView.layer.borderWidth = 8.0
+            cell.contentView.layer.borderColor = UIColor.blue.cgColor
+            
+        } else {
+            cell.contentView.layer.borderWidth = 0.0
+            cell.contentView.layer.borderColor = nil
+        }
+        
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Update the selectedIndexPath when a cell is selected
+        selectedIndexPath = indexPath
+        collectionView.reloadData()
+        let selectedImage = images[indexPath.row]
+        if indexPath.row == 0
+        {
+            print("female")
+        }
+            else
+        {
+                print("male")
+        }
+        
+            
     }
 }
 
