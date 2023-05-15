@@ -46,7 +46,7 @@ class GenderViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.isHidden = true
+        navigationController?.navigationBar.isHidden = false
     }
     
     private func setupUI() {
@@ -86,7 +86,10 @@ class GenderViewController: UIViewController {
     }
     @objc private func circularButtonTapped() {
            // Handle circular button tap event
-           print("Circular button tapped")
+        let vc = CaptureViewController()
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+
        }
 }
 

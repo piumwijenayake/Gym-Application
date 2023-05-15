@@ -110,7 +110,6 @@ class WelcomeViewController: UIViewController {
 
             logo.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10),
             logo.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -320),
-
             logoName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 11),
             logoName.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -280),
 

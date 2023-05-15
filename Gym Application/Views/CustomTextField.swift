@@ -15,7 +15,8 @@ class CustomTextField: UITextField {
            case phone
            case password
            case confirmPassword
-       
+           case height
+           case weight
      
        }
        
@@ -56,6 +57,16 @@ class CustomTextField: UITextField {
                self.placeholder = "Confirm Password"
                self.textContentType = .oneTimeCode
                self.isSecureTextEntry = true
+            
+            case .height:
+               self.placeholder = "Height"
+               self.keyboardType = .numberPad
+               self.textContentType = .oneTimeCode
+               
+           case .weight:
+              self.placeholder = "Weight"
+               self.keyboardType = .numberPad
+               self.textContentType = .oneTimeCode
            }
               }
               

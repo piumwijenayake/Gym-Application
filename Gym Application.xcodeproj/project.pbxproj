@@ -17,6 +17,8 @@
 		022C276E2A0ED1AF00277897 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022C276D2A0ED1AF00277897 /* CustomTextField.swift */; };
 		022C27702A0ED3F400277897 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022C276F2A0ED3F400277897 /* CustomButton.swift */; };
 		023018FF2A0FC9E300D07495 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 023018FE2A0FC9E300D07495 /* GoogleService-Info.plist */; };
+		027959852A1159520047F606 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027959842A1159520047F606 /* CaptureViewController.swift */; };
+		027959872A115FA30047F606 /* LabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 027959862A115FA30047F606 /* LabelView.swift */; };
 		02890A122A0B7F7900B02C35 /* CatergoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */; };
 		0294A5422A10A2A600940D99 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */; };
 		0294A5442A10C4F100940D99 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5432A10C4F100940D99 /* Header.swift */; };
@@ -45,6 +47,8 @@
 		022C276D2A0ED1AF00277897 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		022C276F2A0ED3F400277897 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		023018FE2A0FC9E300D07495 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		027959842A1159520047F606 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
+		027959862A115FA30047F606 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryViewController.swift; sourceTree = "<group>"; };
 		0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		0294A5432A10C4F100940D99 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -130,6 +134,7 @@
 				0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */,
 				0294A5432A10C4F100940D99 /* Header.swift */,
 				0294A5452A10F06A00940D99 /* CircularButtonView.swift */,
+				027959862A115FA30047F606 /* LabelView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -186,6 +191,7 @@
 				02C3296F2A0ABFA40084B077 /* SearchViewController.swift */,
 				02C329712A0ABFFD0084B077 /* BMIViewController.swift */,
 				02F2834D2A101BE4004B39AD /* GenderViewController.swift */,
+				027959842A1159520047F606 /* CaptureViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -268,6 +274,7 @@
 				022C276A2A0EC5BF00277897 /* AuthView.swift in Sources */,
 				02890A122A0B7F7900B02C35 /* CatergoryViewController.swift in Sources */,
 				02AC37892A0815E0003792DC /* Extensions.swift in Sources */,
+				027959872A115FA30047F606 /* LabelView.swift in Sources */,
 				02AC37872A07F8C0003792DC /* WelcomeViewController.swift in Sources */,
 				0294A5462A10F06A00940D99 /* CircularButtonView.swift in Sources */,
 				02C329722A0ABFFD0084B077 /* BMIViewController.swift in Sources */,
@@ -277,6 +284,7 @@
 				02C3296E2A0ABF710084B077 /* HomeViewController.swift in Sources */,
 				0220B1D62A06B54A00706507 /* AppDelegate.swift in Sources */,
 				02C3296C2A0ABDF40084B077 /* TabBarControllerViewController.swift in Sources */,
+				027959852A1159520047F606 /* CaptureViewController.swift in Sources */,
 				0220B1D82A06B54A00706507 /* SceneDelegate.swift in Sources */,
 				02F283482A0FFA54004B39AD /* AuthService.swift in Sources */,
 				02F2834A2A100043004B39AD /* RegisterUserRequest.swift in Sources */,
