@@ -6,12 +6,18 @@
 //
 import UIKit
 
+protocol GenderSelectionDelegate: AnyObject {
+    func didSelectGender(_ gender: String)
+}
 class GenderViewController: UIViewController {
     private var images: [UIImage] = []
     private let titles = ["Female", "Male"] // Array of titles
     private var selectedIndexPath: IndexPath?
     private let headerView = Header(title: "Let's Get To Know More", subTitle: "Give Us Your Gender")
+    var selectedTitle: String?
+    var didSelectTitle: ((String) -> Void)?
     private let collectionView: UICollectionView = {
+        
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal // Set scroll direction to horizontal
         
@@ -23,7 +29,7 @@ class GenderViewController: UIViewController {
         return collectionView
     }()
     private let nextButton = CustomButton(title: "Next", hasBackground: true, fontSize: .big)
-   
+    weak var delegate: GenderSelectionDelegate?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -85,10 +91,16 @@ class GenderViewController: UIViewController {
         ])
     }
     @objc private func circularButtonTapped() {
-           // Handle circular button tap event
-        let vc = CaptureViewController()
-        vc.navigationItem.largeTitleDisplayMode = .never
-        navigationController?.pushViewController(vc, animated: true)
+        guard let selectedIndexPath = selectedIndexPath else {
+                    // No item is selected, handle the error condition
+                    return
+                }
+                
+                let selectedTitle = titles[selectedIndexPath.row]
+                
+                let anotherViewController = CaptureViewController()
+                anotherViewController.selectedTitle = selectedTitle
+                navigationController?.pushViewController(anotherViewController, animated: true)
 
        }
 }
@@ -124,7 +136,11 @@ extension GenderViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Update the selectedIndexPath when a cell is selected
         selectedIndexPath = indexPath
+        
+        
         collectionView.reloadData()
+        let selectedTitle = titles[indexPath.row]
+        delegate?.didSelectGender(selectedTitle)
         let selectedImage = images[indexPath.row]
         if indexPath.row == 0
         {

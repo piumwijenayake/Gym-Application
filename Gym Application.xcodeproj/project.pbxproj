@@ -23,6 +23,7 @@
 		0294A5422A10A2A600940D99 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */; };
 		0294A5442A10C4F100940D99 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5432A10C4F100940D99 /* Header.swift */; };
 		0294A5462A10F06A00940D99 /* CircularButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5452A10F06A00940D99 /* CircularButtonView.swift */; };
+		02A482B12A1555540036C198 /* ModeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02A482B02A1555540036C198 /* ModeViewController.swift */; };
 		02AC37872A07F8C0003792DC /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AC37862A07F8C0003792DC /* WelcomeViewController.swift */; };
 		02AC37892A0815E0003792DC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02AC37882A0815E0003792DC /* Extensions.swift */; };
 		02C3296C2A0ABDF40084B077 /* TabBarControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3296B2A0ABDF40084B077 /* TabBarControllerViewController.swift */; };
@@ -53,6 +54,7 @@
 		0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		0294A5432A10C4F100940D99 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		0294A5452A10F06A00940D99 /* CircularButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularButtonView.swift; sourceTree = "<group>"; };
+		02A482B02A1555540036C198 /* ModeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeViewController.swift; sourceTree = "<group>"; };
 		02AC37862A07F8C0003792DC /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		02AC37882A0815E0003792DC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		02C3296B2A0ABDF40084B077 /* TabBarControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				02C329712A0ABFFD0084B077 /* BMIViewController.swift */,
 				02F2834D2A101BE4004B39AD /* GenderViewController.swift */,
 				027959842A1159520047F606 /* CaptureViewController.swift */,
+				02A482B02A1555540036C198 /* ModeViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				0294A5442A10C4F100940D99 /* Header.swift in Sources */,
 				02C329702A0ABFA40084B077 /* SearchViewController.swift in Sources */,
 				0294A5422A10A2A600940D99 /* CustomCollectionViewCell.swift in Sources */,
+				02A482B12A1555540036C198 /* ModeViewController.swift in Sources */,
 				02C3296E2A0ABF710084B077 /* HomeViewController.swift in Sources */,
 				0220B1D62A06B54A00706507 /* AppDelegate.swift in Sources */,
 				02C3296C2A0ABDF40084B077 /* TabBarControllerViewController.swift in Sources */,

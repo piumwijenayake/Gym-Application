@@ -37,8 +37,8 @@ class LabelView: UIView {
           NSLayoutConstraint.activate([
               self.txtlabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 30),
               self.txtlabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-              self.txtlabel.widthAnchor.constraint(equalToConstant: 90),
-              self.txtlabel.heightAnchor.constraint(equalTo: txtlabel.widthAnchor),
+              self.txtlabel.widthAnchor.constraint(equalToConstant: 190),
+              self.txtlabel.heightAnchor.constraint(equalToConstant: 90),
 
               ])
       }
