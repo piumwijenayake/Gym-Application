@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02141BCA2A160A8E000AABB2 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02141BC92A160A8E000AABB2 /* RectangleView.swift */; };
+		02141BCC2A167FEE000AABB2 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02141BCB2A167FEE000AABB2 /* CustomView.swift */; };
 		0220B1D62A06B54A00706507 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220B1D52A06B54A00706507 /* AppDelegate.swift */; };
 		0220B1D82A06B54A00706507 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220B1D72A06B54A00706507 /* SceneDelegate.swift */; };
 		0220B1DA2A06B54A00706507 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220B1D92A06B54A00706507 /* ViewController.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02141BC92A160A8E000AABB2 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
+		02141BCB2A167FEE000AABB2 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		0220B1D22A06B54A00706507 /* Gym Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gym Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0220B1D52A06B54A00706507 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0220B1D72A06B54A00706507 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +141,8 @@
 				0294A5432A10C4F100940D99 /* Header.swift */,
 				0294A5452A10F06A00940D99 /* CircularButtonView.swift */,
 				027959862A115FA30047F606 /* LabelView.swift */,
+				02141BC92A160A8E000AABB2 /* RectangleView.swift */,
+				02141BCB2A167FEE000AABB2 /* CustomView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -284,11 +290,13 @@
 				0294A5442A10C4F100940D99 /* Header.swift in Sources */,
 				02C329702A0ABFA40084B077 /* SearchViewController.swift in Sources */,
 				0294A5422A10A2A600940D99 /* CustomCollectionViewCell.swift in Sources */,
+				02141BCA2A160A8E000AABB2 /* RectangleView.swift in Sources */,
 				02A482B12A1555540036C198 /* ModeViewController.swift in Sources */,
 				02C3296E2A0ABF710084B077 /* HomeViewController.swift in Sources */,
 				0220B1D62A06B54A00706507 /* AppDelegate.swift in Sources */,
 				02C3296C2A0ABDF40084B077 /* TabBarControllerViewController.swift in Sources */,
 				027959852A1159520047F606 /* CaptureViewController.swift in Sources */,
+				02141BCC2A167FEE000AABB2 /* CustomView.swift in Sources */,
 				0220B1D82A06B54A00706507 /* SceneDelegate.swift in Sources */,
 				02F283482A0FFA54004B39AD /* AuthService.swift in Sources */,
 				02F2834A2A100043004B39AD /* RegisterUserRequest.swift in Sources */,

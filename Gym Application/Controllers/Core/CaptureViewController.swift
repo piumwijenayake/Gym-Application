@@ -1,5 +1,11 @@
 import UIKit
+protocol DataDelegate: AnyObject {
+    func sendData1(data1: Double)
+    func sendData2(data2: Double)
+    func sendData3(data3: Double)
+    func sendData4(data4: String)
 
+}
 class CaptureViewController: UIViewController {
     // MARK: - UI Components
     private let contentView = UIView()
@@ -10,10 +16,14 @@ class CaptureViewController: UIViewController {
         private let medical = LabelView(title: "Medical Conditions:")
         private let goal = LabelView(title: "Fitness Goal:")
         var selectedTitle: String?
+        weak var delegate: DataDelegate?
+        let destinationVC = BMIViewController()
         private var recieved: String?
-       
-        var dataToSend: String?
-        private let signInButton = CustomButton(title: "Next", hasBackground: true, fontSize: .big)
+        private var data1: String?
+        var data2: String?
+        var data3: String?
+        var data4: String?
+        private let nextButton = CustomButton(title: "Next", hasBackground: true, fontSize: .big)
         let age: UITextField = {
             let textField = UITextField(frame: CGRect(x: 20, y: 100, width: 10, height: 30))
             textField.borderStyle = .roundedRect
@@ -71,8 +81,9 @@ class CaptureViewController: UIViewController {
           
         override func viewDidLoad() {
             super.viewDidLoad()
+            destinationVC.delegate = self
             setupUI()
-            self.signInButton.addTarget(self, action: #selector(didNext), for: .touchUpInside)
+            self.nextButton.addTarget(self, action: #selector(didNext), for: .touchUpInside)
             if let selectedTitle = selectedTitle {
                         print("Selected title: \(selectedTitle)")
                         // Update your UI or perform any other necessary actions with the selected title
@@ -104,9 +115,9 @@ class CaptureViewController: UIViewController {
             contentView.addSubview(medicals)
             contentView.addSubview(goal)
             contentView.addSubview(fitness)
-            contentView.addSubview(signInButton)
+            contentView.addSubview(nextButton)
             // Disable autoresizing mask translation for flexible constraints
-            [contentView, headerView, heightLabel, ageLabel,age,height, weightLabel, weight,medical,medicals,goal,fitness,signInButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+            [contentView, headerView, heightLabel, ageLabel,age,height, weightLabel, weight,medical,medicals,goal,fitness,nextButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
             
             // Set contentView constraints
             NSLayoutConstraint.activate([
@@ -159,10 +170,10 @@ class CaptureViewController: UIViewController {
                 fitness.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
                 fitness.heightAnchor.constraint(equalToConstant: 45),
                 
-                signInButton.topAnchor.constraint(equalTo: fitness.bottomAnchor, constant: 90),
-                signInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-                signInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-                signInButton.heightAnchor.constraint(equalToConstant: 45),
+                nextButton.topAnchor.constraint(equalTo: fitness.bottomAnchor, constant: 90),
+                nextButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+                nextButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+                nextButton.heightAnchor.constraint(equalToConstant: 45),
     
                 
                 
@@ -171,9 +182,37 @@ class CaptureViewController: UIViewController {
             ])
         }
     @objc private func didNext() {
-        let vc = BMIViewController()
-        vc.recieved = selectedTitle
-        navigationController?.pushViewController(vc, animated: true)
+        data1 = age.text ?? ""
+        data2 = height.text ?? ""
+        data3 = weight.text ?? ""
+        if let selectedTitle = selectedTitle {
+                    print(selectedTitle)
+                    // Update your UI or perform any other necessary actions with the selected title
+            }
+        
+        data4 = selectedTitle
+        
+        destinationVC.recieved = selectedTitle
+        destinationVC.data1 = data1
+        destinationVC.data2 = data2
+        destinationVC.data3 = data3
+        destinationVC.data4 = data4
+        navigationController?.pushViewController(destinationVC, animated: true)
          }
   //
     }
+extension CaptureViewController: DataDelegate {
+    func sendData1(data1: Double) {
+        print("Received data1: \(data1)")
+    }
+    
+    func sendData2(data2: Double) {
+        print("Received data2: \(data2)")
+    }
+    func sendData3(data3: Double) {
+        print("Received data2: \(data3)")
+    }
+    func sendData4(data4: String) {
+        print(data4)
+    }
+}
