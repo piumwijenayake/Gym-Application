@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import FirebaseCore
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -24,7 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window.makeKeyAndVisible()
         self.window=window
-     
+        
+        FirebaseApp.configure()
         return true
         
     }

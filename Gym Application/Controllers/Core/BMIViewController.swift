@@ -16,8 +16,7 @@ class BMIViewController: UIViewController {
     private let headerView = Header(title: "BMI Calculator", subTitle: "")
     private let dataLabel = UILabel()
     private let dataLabel1 = UILabel()
-    private let imageView = UIImageView(image: UIImage(named: "obsesse"))
-    private let imageViews = UIImageView(image: UIImage(named: "obsesse"))
+    private let imageView = UIImageView()
     private let heigths = LabelView(title: "Height:")
     private let weights = LabelView(title: "Weight")
     private let calculate = CustomButton(title: "Claculate BMI", hasBackground: true, fontSize: .small)
@@ -113,20 +112,20 @@ class BMIViewController: UIViewController {
             calculate.heightAnchor.constraint(equalToConstant: 55),
 
            
-            dataLabel1.topAnchor.constraint(equalTo: calculate.bottomAnchor, constant: 30),
+            dataLabel1.topAnchor.constraint(equalTo: calculate.bottomAnchor, constant: 10),
             dataLabel1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 190),
             dataLabel1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             dataLabel1.heightAnchor.constraint(equalToConstant: 55),
             
-            dataLabel.topAnchor.constraint(equalTo: dataLabel1.bottomAnchor, constant: 10),
+            dataLabel.topAnchor.constraint(equalTo: dataLabel1.bottomAnchor, constant: -20),
             dataLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 120),
             dataLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             dataLabel.heightAnchor.constraint(equalToConstant: 55),
 
-            imageView.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 10),
-            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 140),
+            imageView.topAnchor.constraint(equalTo: dataLabel.bottomAnchor, constant: 20),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 100),
             imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            imageView.heightAnchor.constraint(equalToConstant: 190),
+            imageView.heightAnchor.constraint(equalToConstant: 220),
             
         ])
         
@@ -151,24 +150,39 @@ class BMIViewController: UIViewController {
           
           let overweightThreshold: Double = 25
           let underweightThreshold: Double = 18.5
-        let   obessetreshold: Double = 29.9
+          let obessetreshold: Double = 29.9
+        let extremeobessetreshold: Double = 35.5
+        let normalweight: Double = 18.49
           if bmi > overweightThreshold {
               dataLabel.text = "OOPS! You are Overweight"
               dataLabel.textColor = .white
+              imageView.image = UIImage(named: "overweight")
               imageView.isHidden = false
           
                       // Add the image view to the view hierarchy
                  view.addSubview(imageView)
           } else if bmi < underweightThreshold {
               dataLabel.text = "OOPS! You are Underweight"
-              imageView.isHidden = true
+              imageView.image = UIImage(named: "underweight")
+              
+              imageView.isHidden = false
           }
-         else if bmi < underweightThreshold {
+         else if bmi > obessetreshold {
+            
             dataLabel.text = "OOPS! You are Obsesse"
-            imageView.isHidden = true
+            imageView.image = UIImage(named: "overweight")
+            imageView.isHidden = false
         }
-        else {
+        else if bmi > extremeobessetreshold {
+           
+           dataLabel.text = "OOPS! You are Extremely Overweight"
+           imageView.image = UIImage(named: "obesse")
+           imageView.isHidden = false
+       }
+        else if bmi > normalweight {
               dataLabel.text = "Congratulations! You are Normal"
+            imageView.image = UIImage(named: "normal")
+            imageView.isHidden = false
           }
           
           print("BMI: \(bmi)")
