@@ -8,6 +8,9 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
+protocol SignInDelegate: AnyObject {
+    func didSignIn(withUsername username: String)
+}
 class SignInViewController: UIViewController {
     
    
@@ -19,12 +22,12 @@ class SignInViewController: UIViewController {
 
        private let usernameField = CustomTextFields(fieldType: .username)
        private let passwordField = CustomTextFields(fieldType: .password)
-
+       var data: String?
        private let signInButton = CustomButton(title: "Sign In", hasBackground: true, fontSize: .big)
        private let newUserButton = CustomButton(title: "New User? Create Account.", fontSize: .med)
        private let forgotPasswordButton = CustomButton(title: "Forgot Password?", fontSize: .small)
        private let databaseRef = Database.database().reference()
-
+       weak var signInDelegate: SignInDelegate?
        // MARK: - LifeCycle
        override func viewDidLoad() {
            super.viewDidLoad()
@@ -94,39 +97,46 @@ class SignInViewController: UIViewController {
 
        // MARK: - Selectors
     @objc func didSignIn(){
-        let enteredEmail = usernameField.text
+        let usersRef = Database.database().reference().child("users")
+        let enteredUsername = usernameField.text
         let enteredPassword = passwordField.text
-               
-               // Check if the entered email exists in the Firebase database
-        let usersRef = databaseRef.child("users")
-        let query = usersRef.queryOrdered(byChild: "username").queryEqual(toValue: enteredEmail)
-               
-        query.observeSingleEvent(of: .value) { snapshot in
-                if snapshot.exists() {
-                       // The entered email exists in the database
-                       // You can perform any necessary actions here
-                       
-                       // Example: Get the user's data
-                if let userSnapshot = snapshot.children.allObjects.first as? DataSnapshot,
-                    let userData = userSnapshot.value as? [String: Any] {
-                    let username = userData["username"] as? String
-                    let password = userData["password"] as? String
+
+        usersRef.observeSingleEvent(of: .value) { snapshot  in
+            if let usersData = snapshot.value as? [String: Any] {
+                for (recordID, userData) in usersData {
+                    if let userDict = userData as? [String: Any],
+                      // let recordID = userDict["recordID"] as? String,
+                       let username = userDict["username"] as? String,
+                       let password = userDict["password"] as? String {
+                        print(username)
+                        print(password)
+                        print("Record ID: \(recordID)")
+                        //print(_id)
+                        if username == enteredUsername && password == enteredPassword {
+                            
+                            // User authentication successful
+                            let vc = CaptureViewController( )
                            
-                           // Perform actions with the retrieved user data
-                           print("Username: \(username ?? "")")
-                           print("Password: \(password ?? "")")
-                       }
-                       
-                       let vc = GenderViewController()
-                       vc.modalPresentationStyle = .fullScreen
-                       self.present(vc, animated: false, completion: nil)
-                   } else {
-                       // The entered email does not exist in the database
-                       let alert = UIAlertController(title: "Login Failed", message: "Invalid email or password", preferredStyle: .alert)
-                       let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                       alert.addAction(okAction)
-                       self.present(alert, animated: true, completion: nil)
-                   }
-               }
-           }
+                            vc.data = recordID
+                            self.navigationController?.pushViewController(vc, animated: true)
+
+                            print("Authentication successful")
+                            
+                            // Perform actions such as navigating to the next screen
+                            return
+                        }
+                    }
+                }
+                
+                // User authentication failed
+                print("Authentication failed")
+                // Display an error message or perform any other necessary actions
+            }
+        }
+        
+       
+    }
+            
+                        
+                 
        }

@@ -12,7 +12,7 @@ class BMIViewController: UIViewController {
     var data2: String?
     var data3: String?
     var data4: String?
-    weak var delegate: DataDelegate?
+   // weak var delegate: DataDelegate?
     private let headerView = Header(title: "BMI Calculator", subTitle: "")
     private let dataLabel = UILabel()
     private let dataLabel1 = UILabel()

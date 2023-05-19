@@ -1,11 +1,5 @@
 import UIKit
-protocol DataDelegate: AnyObject {
-    func sendData1(data1: Double)
-    func sendData2(data2: Double)
-    func sendData3(data3: Double)
-    func sendData4(data4: String)
-
-}
+import FirebaseDatabase
 class CaptureViewController: UIViewController {
     // MARK: - UI Components
     private let contentView = UIView()
@@ -17,13 +11,11 @@ class CaptureViewController: UIViewController {
     private let medical = LabelView(title: "Medical Conditions:")
     private let goal = LabelView(title: "Fitness Goal:")
     var selectedTitle: String?
-    weak var delegate: DataDelegate?
     let destinationVC = BMIViewController()
     private var recieved: String?
-    private var data1: String?
-    var data2: String?
-    var data3: String?
-    var data4: String?
+    var data: String?
+    
+    
     private let nextButton = CustomButton(title: "Next", hasBackground: true, fontSize: .big)
     let age: UITextField = {
         let textField = UITextField(frame: CGRect(x: 20, y: 100, width: 10, height: 30))
@@ -36,15 +28,15 @@ class CaptureViewController: UIViewController {
         return textField
         }()
         
-        let height: UITextField = {
-            let textField = UITextField(frame: CGRect(x: 20, y: 100, width: 50, height: 30))
-            textField.borderStyle = .roundedRect
-            textField.placeholder = "Enter Height"
-            textField.font = UIFont.systemFont(ofSize: 16)
-            textField.textColor = UIColor.black
-            textField.backgroundColor = UIColor.white
+    let height: UITextField = {
+        let textField = UITextField(frame: CGRect(x: 20, y: 100, width: 50, height: 30))
+        textField.borderStyle = .roundedRect
+        textField.placeholder = "Enter Height"
+        textField.font = UIFont.systemFont(ofSize: 16)
+        textField.textColor = UIColor.black
+        textField.backgroundColor = UIColor.white
             // textField.delegate = self
-            return textField
+        return textField
         }()
         
         let weight: UITextField = {
@@ -82,13 +74,10 @@ class CaptureViewController: UIViewController {
           
         override func viewDidLoad() {
             super.viewDidLoad()
-            destinationVC.delegate = self
+            //destinationVC.delegate = self
             setupUI()
             self.nextButton.addTarget(self, action: #selector(didNext), for: .touchUpInside)
-            if let selectedTitle = selectedTitle {
-                        print("Selected title: \(selectedTitle)")
-                        // Update your UI or perform any other necessary actions with the selected title
-                    }
+            
            
         }
         
@@ -183,37 +172,34 @@ class CaptureViewController: UIViewController {
             ])
         }
     @objc private func didNext() {
-        data1 = age.text ?? ""
-        data2 = height.text ?? ""
-        data3 = weight.text ?? ""
-        if let selectedTitle = selectedTitle {
-                    print(selectedTitle)
-                    // Update your UI or perform any other necessary actions with the selected title
+        let data = data!
+        let agetext = age.text
+        let heightText = height.text
+        let weightText = weight.text
+        let mCondition = medicals.text
+        let fitnessGoals = fitness.text
+        let ref = Database.database().reference().child("users").child(data)
+
+            let updates = [
+                "age": agetext!,
+                "height": heightText!,
+                "weight": weightText!,
+                "medical": mCondition!,
+                "goal" : fitnessGoals!,
+                
+            ] as [String : Any]
+            
+            ref.updateChildValues(updates) { error, _ in
+                if let error = error {
+                    print("Error updating data: \(error)")
+                } else {
+                    print("Data updated successfully!")
+                }
             }
-        
-        data4 = selectedTitle
-        
-        destinationVC.recieved = selectedTitle
-        destinationVC.data1 = data1
-        destinationVC.data2 = data2
-        destinationVC.data3 = data3
-        destinationVC.data4 = data4
-        navigationController?.pushViewController(destinationVC, animated: true)
+                     // Output: "Hello, World!"
+                
          }
   //
     }
-extension CaptureViewController: DataDelegate {
-    func sendData1(data1: Double) {
-        print("Received data1: \(data1)")
-    }
-    
-    func sendData2(data2: Double) {
-        print("Received data2: \(data2)")
-    }
-    func sendData3(data3: Double) {
-        print("Received data2: \(data3)")
-    }
-    func sendData4(data4: String) {
-        print(data4)
-    }
-}
+
+
