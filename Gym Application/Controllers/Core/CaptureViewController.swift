@@ -9,30 +9,31 @@ protocol DataDelegate: AnyObject {
 class CaptureViewController: UIViewController {
     // MARK: - UI Components
     private let contentView = UIView()
-        private let headerView = Header(title: "Let's Get To Know More", subTitle: "Tell Us Your Physical Attributes And Habits")
-        private let ageLabel = LabelView(title: "Age:")
-        private let heightLabel = LabelView(title: "Height:")
-        private let weightLabel = LabelView(title: "Weight:")
-        private let medical = LabelView(title: "Medical Conditions:")
-        private let goal = LabelView(title: "Fitness Goal:")
-        var selectedTitle: String?
-        weak var delegate: DataDelegate?
-        let destinationVC = BMIViewController()
-        private var recieved: String?
-        private var data1: String?
-        var data2: String?
-        var data3: String?
-        var data4: String?
-        private let nextButton = CustomButton(title: "Next", hasBackground: true, fontSize: .big)
-        let age: UITextField = {
-            let textField = UITextField(frame: CGRect(x: 20, y: 100, width: 10, height: 30))
-            textField.borderStyle = .roundedRect
-            textField.placeholder = "Enter Age"
-            textField.font = UIFont.systemFont(ofSize: 16)
-            textField.textColor = UIColor.black
-            textField.backgroundColor = UIColor.white
-            // textField.delegate = self
-            return textField
+    private let headerView = Header(title: "Let's Get To Know More", subTitle: "Tell Us Your Physical Attributes And Habits")
+    private let genderLabel = LabelView(title: "Gender:")
+    private let ageLabel = LabelView(title: "Age:")
+    private let heightLabel = LabelView(title: "Height:")
+    private let weightLabel = LabelView(title: "Weight:")
+    private let medical = LabelView(title: "Medical Conditions:")
+    private let goal = LabelView(title: "Fitness Goal:")
+    var selectedTitle: String?
+    weak var delegate: DataDelegate?
+    let destinationVC = BMIViewController()
+    private var recieved: String?
+    private var data1: String?
+    var data2: String?
+    var data3: String?
+    var data4: String?
+    private let nextButton = CustomButton(title: "Next", hasBackground: true, fontSize: .big)
+    let age: UITextField = {
+        let textField = UITextField(frame: CGRect(x: 20, y: 100, width: 10, height: 30))
+        textField.borderStyle = .roundedRect
+        textField.placeholder = "Enter Age"
+        textField.font = UIFont.systemFont(ofSize: 16)
+        textField.textColor = UIColor.black
+        textField.backgroundColor = UIColor.white
+        // textField.delegate = self
+        return textField
         }()
         
         let height: UITextField = {

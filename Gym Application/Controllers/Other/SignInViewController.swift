@@ -96,38 +96,37 @@ class SignInViewController: UIViewController {
     @objc func didSignIn(){
         let enteredEmail = usernameField.text
         let enteredPassword = passwordField.text
-        let hardcodedEmail = "test"
-        let hardcodedPassword = "pass123"
-        let data = [
-            "username": enteredEmail,
-            "password": enteredPassword
-        ]
-        if enteredEmail == hardcodedEmail && enteredPassword == hardcodedPassword {
-            databaseRef.child("users").childByAutoId().setValue(data) { error, _ in
-                if let error = error {
-                    print("Error posting data: \(error.localizedDescription)")
-                } else {
-                    print("Data posted successfully")
-                }
-            }
-            
-            
-                let vc = GenderViewController()
-                
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: false, completion: nil)
-                
-            
-        }
-            else {
-                let alert = UIAlertController(title: "Login Failed", message: "Invalid email or password", preferredStyle: .alert)
-                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
-                alert.addAction(okAction)
-                present(alert, animated: true, completion: nil)
-                // Login failed, display an error message
-            }
-            
-        
-        
-    }
-}
+               
+               // Check if the entered email exists in the Firebase database
+        let usersRef = databaseRef.child("users")
+        let query = usersRef.queryOrdered(byChild: "username").queryEqual(toValue: enteredEmail)
+               
+        query.observeSingleEvent(of: .value) { snapshot in
+                if snapshot.exists() {
+                       // The entered email exists in the database
+                       // You can perform any necessary actions here
+                       
+                       // Example: Get the user's data
+                if let userSnapshot = snapshot.children.allObjects.first as? DataSnapshot,
+                    let userData = userSnapshot.value as? [String: Any] {
+                    let username = userData["username"] as? String
+                    let password = userData["password"] as? String
+                           
+                           // Perform actions with the retrieved user data
+                           print("Username: \(username ?? "")")
+                           print("Password: \(password ?? "")")
+                       }
+                       
+                       let vc = GenderViewController()
+                       vc.modalPresentationStyle = .fullScreen
+                       self.present(vc, animated: false, completion: nil)
+                   } else {
+                       // The entered email does not exist in the database
+                       let alert = UIAlertController(title: "Login Failed", message: "Invalid email or password", preferredStyle: .alert)
+                       let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                       alert.addAction(okAction)
+                       self.present(alert, animated: true, completion: nil)
+                   }
+               }
+           }
+       }
