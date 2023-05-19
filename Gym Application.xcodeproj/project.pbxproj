@@ -38,6 +38,10 @@
 		02C329702A0ABFA40084B077 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C3296F2A0ABFA40084B077 /* SearchViewController.swift */; };
 		02C329722A0ABFFD0084B077 /* BMIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C329712A0ABFFD0084B077 /* BMIViewController.swift */; };
 		02E50E5F2A17B8AA00AECAC2 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E50E5E2A17B8AA00AECAC2 /* ListViewController.swift */; };
+		02E50E612A17D98500AECAC2 /* HeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E50E602A17D98500AECAC2 /* HeaderViewController.swift */; };
+		02E50E632A18011400AECAC2 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E50E622A18011400AECAC2 /* Exercise.swift */; };
+		02E50E662A18025800AECAC2 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 02E50E652A18025800AECAC2 /* Kingfisher */; };
+		02E50E682A18158A00AECAC2 /* ExerciseViewCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02E50E672A18158A00AECAC2 /* ExerciseViewCellTableViewCell.swift */; };
 		02F283482A0FFA54004B39AD /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F283472A0FFA54004B39AD /* AuthService.swift */; };
 		02F2834A2A100043004B39AD /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F283492A100043004B39AD /* RegisterUserRequest.swift */; };
 		02F2834E2A101BE4004B39AD /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02F2834D2A101BE4004B39AD /* GenderViewController.swift */; };
@@ -73,6 +77,9 @@
 		02C3296F2A0ABFA40084B077 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		02C329712A0ABFFD0084B077 /* BMIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BMIViewController.swift; sourceTree = "<group>"; };
 		02E50E5E2A17B8AA00AECAC2 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		02E50E602A17D98500AECAC2 /* HeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderViewController.swift; sourceTree = "<group>"; };
+		02E50E622A18011400AECAC2 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		02E50E672A18158A00AECAC2 /* ExerciseViewCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseViewCellTableViewCell.swift; sourceTree = "<group>"; };
 		02F283472A0FFA54004B39AD /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		02F283492A100043004B39AD /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
 		02F2834D2A101BE4004B39AD /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +94,7 @@
 				0281A9DD2A173C9C00155643 /* FirebaseAnalytics in Frameworks */,
 				0281A9E62A17459800155643 /* FirebaseDatabase in Frameworks */,
 				0281A9E12A173C9C00155643 /* FirebaseFirestore in Frameworks */,
+				02E50E662A18025800AECAC2 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +137,7 @@
 		0220B1E92A06B85F00706507 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				02E50E622A18011400AECAC2 /* Exercise.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -157,6 +166,7 @@
 				02141BC92A160A8E000AABB2 /* RectangleView.swift */,
 				02141BCB2A167FEE000AABB2 /* CustomView.swift */,
 				0281A9E22A17400700155643 /* CustomTextFields.swift */,
+				02E50E672A18158A00AECAC2 /* ExerciseViewCellTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +218,7 @@
 				02AC37862A07F8C0003792DC /* WelcomeViewController.swift */,
 				02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */,
 				022C27652A0EBF8300277897 /* SignInViewController.swift */,
+				02E50E602A17D98500AECAC2 /* HeaderViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -248,6 +259,7 @@
 				0281A9DE2A173C9C00155643 /* FirebaseAnalyticsSwift */,
 				0281A9E02A173C9C00155643 /* FirebaseFirestore */,
 				0281A9E52A17459800155643 /* FirebaseDatabase */,
+				02E50E652A18025800AECAC2 /* Kingfisher */,
 			);
 			productName = "Gym Application";
 			productReference = 0220B1D22A06B54A00706507 /* Gym Application.app */;
@@ -279,6 +291,7 @@
 			mainGroup = 0220B1C92A06B54A00706507;
 			packageReferences = (
 				0281A9DB2A173C9C00155643 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				02E50E642A18025800AECAC2 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 0220B1D32A06B54A00706507 /* Products */;
 			projectDirPath = "";
@@ -308,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				022C276E2A0ED1AF00277897 /* CustomTextField.swift in Sources */,
+				02E50E612A17D98500AECAC2 /* HeaderViewController.swift in Sources */,
 				02F2834E2A101BE4004B39AD /* GenderViewController.swift in Sources */,
 				022C27662A0EBF8300277897 /* SignInViewController.swift in Sources */,
 				0220B1DA2A06B54A00706507 /* ViewController.swift in Sources */,
@@ -319,12 +333,14 @@
 				02AC37872A07F8C0003792DC /* WelcomeViewController.swift in Sources */,
 				0294A5462A10F06A00940D99 /* CircularButtonView.swift in Sources */,
 				02C329722A0ABFFD0084B077 /* BMIViewController.swift in Sources */,
+				02E50E632A18011400AECAC2 /* Exercise.swift in Sources */,
 				0294A5442A10C4F100940D99 /* Header.swift in Sources */,
 				0281A9E32A17400700155643 /* CustomTextFields.swift in Sources */,
 				02C329702A0ABFA40084B077 /* SearchViewController.swift in Sources */,
 				0294A5422A10A2A600940D99 /* CustomCollectionViewCell.swift in Sources */,
 				02141BCA2A160A8E000AABB2 /* RectangleView.swift in Sources */,
 				02A482B12A1555540036C198 /* ModeViewController.swift in Sources */,
+				02E50E682A18158A00AECAC2 /* ExerciseViewCellTableViewCell.swift in Sources */,
 				02C3296E2A0ABF710084B077 /* HomeViewController.swift in Sources */,
 				0220B1D62A06B54A00706507 /* AppDelegate.swift in Sources */,
 				02C3296C2A0ABDF40084B077 /* TabBarControllerViewController.swift in Sources */,
@@ -551,6 +567,14 @@
 				version = 10.9.0;
 			};
 		};
+		02E50E642A18025800AECAC2 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = exactVersion;
+				version = 7.6.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -573,6 +597,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0281A9DB2A173C9C00155643 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseDatabase;
+		};
+		02E50E652A18025800AECAC2 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02E50E642A18025800AECAC2 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

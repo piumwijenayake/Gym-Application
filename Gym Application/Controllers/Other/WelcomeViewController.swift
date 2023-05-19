@@ -135,7 +135,7 @@ class WelcomeViewController: UIViewController {
         
     }
     @objc func didSignIn(){
-        let vc = SignInViewController()
+        let vc = ListViewController()
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
     }

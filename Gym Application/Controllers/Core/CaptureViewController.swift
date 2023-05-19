@@ -194,6 +194,9 @@ class CaptureViewController: UIViewController {
                     print("Error updating data: \(error)")
                 } else {
                     print("Data updated successfully!")
+                    let anotherViewController = ListViewController()
+                    
+                    self.navigationController?.pushViewController(anotherViewController, animated: true)
                 }
             }
                      // Output: "Hello, World!"
