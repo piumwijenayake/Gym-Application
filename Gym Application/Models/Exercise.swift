@@ -34,4 +34,5 @@ struct ExerciseListOne {
     let duration:String
     let bodyPart:String
     let goal:String
+    let catergory:String
 }

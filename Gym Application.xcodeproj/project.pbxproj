@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		02141BCA2A160A8E000AABB2 /* RectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02141BC92A160A8E000AABB2 /* RectangleView.swift */; };
 		02141BCC2A167FEE000AABB2 /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02141BCB2A167FEE000AABB2 /* CustomView.swift */; };
+		021AC9602A19727400C0C426 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 021AC95F2A19727400C0C426 /* VideoViewController.swift */; };
 		0220B1D62A06B54A00706507 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220B1D52A06B54A00706507 /* AppDelegate.swift */; };
 		0220B1D82A06B54A00706507 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220B1D72A06B54A00706507 /* SceneDelegate.swift */; };
 		0220B1DA2A06B54A00706507 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0220B1D92A06B54A00706507 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 /* Begin PBXFileReference section */
 		02141BC92A160A8E000AABB2 /* RectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleView.swift; sourceTree = "<group>"; };
 		02141BCB2A167FEE000AABB2 /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
+		021AC95F2A19727400C0C426 /* VideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		0220B1D22A06B54A00706507 /* Gym Application.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Gym Application.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0220B1D52A06B54A00706507 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0220B1D72A06B54A00706507 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				02A482B02A1555540036C198 /* ModeViewController.swift */,
 				02E50E5E2A17B8AA00AECAC2 /* ListViewController.swift */,
 				02625DCC2A18E21B003B7431 /* DetailsViewController.swift */,
+				021AC95F2A19727400C0C426 /* VideoViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				02E50E632A18011400AECAC2 /* Exercise.swift in Sources */,
 				0294A5442A10C4F100940D99 /* Header.swift in Sources */,
 				0281A9E32A17400700155643 /* CustomTextFields.swift in Sources */,
+				021AC9602A19727400C0C426 /* VideoViewController.swift in Sources */,
 				02C329702A0ABFA40084B077 /* SearchViewController.swift in Sources */,
 				0294A5422A10A2A600940D99 /* CustomCollectionViewCell.swift in Sources */,
 				02141BCA2A160A8E000AABB2 /* RectangleView.swift in Sources */,

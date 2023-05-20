@@ -18,6 +18,8 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     var documentID:String!
     var detailsLabel: UILabel!
     var details: UILabel!
+    var catergoryLabel: UILabel!
+    var catergory: UILabel!
     var durationLabel: UILabel!
     var duration: UILabel!
     var modeLabel: UILabel!
@@ -51,6 +53,18 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         details.font = UIFont.systemFont(ofSize: 13)
         details.numberOfLines = 0
         self.view.addSubview(details)
+        catergoryLabel = UILabel(frame: CGRect(x: 20, y: 20, width: 200, height: 30))
+        catergoryLabel.textColor = .black
+        catergoryLabel.text = "Catergory"
+        catergoryLabel.font = UIFont.systemFont(ofSize: 18)
+        
+        view.addSubview(catergoryLabel)
+        catergory = UILabel()
+        //details.frame = CGRect(x: 20, y: 20, width: 200, height: 40)
+        catergory.textColor = .black
+        catergory.font = UIFont.systemFont(ofSize: 13)
+        catergory.numberOfLines = 0
+        self.view.addSubview(catergory)
         modeLabel = UILabel(frame: CGRect(x: 20, y: 20, width: 200, height: 30))
         modeLabel.textColor = .black
         modeLabel.text = "Mode"
@@ -104,6 +118,8 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         details.translatesAutoresizingMaskIntoConstraints = false
         modeLabel.translatesAutoresizingMaskIntoConstraints = false
         mode.translatesAutoresizingMaskIntoConstraints = false
+        catergoryLabel.translatesAutoresizingMaskIntoConstraints = false
+        catergory.translatesAutoresizingMaskIntoConstraints = false
         durationLabel.translatesAutoresizingMaskIntoConstraints = false
         duration.translatesAutoresizingMaskIntoConstraints = false
         bodyPartLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -126,43 +142,53 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
            details.widthAnchor.constraint(equalToConstant: 900),
            details.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
            
+           catergoryLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+           catergoryLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 490),
+           catergoryLabel.widthAnchor.constraint(equalToConstant: 100),
+           catergoryLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
+           
+           catergory.leadingAnchor.constraint(equalTo: catergoryLabel.trailingAnchor, constant: 190),
+           catergory.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 490),
+           catergory.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+           catergory.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
+          
            modeLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
-           modeLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 490),
+           modeLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 530),
            modeLabel.widthAnchor.constraint(equalToConstant: 100),
            modeLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
 
            mode.leadingAnchor.constraint(equalTo: modeLabel.trailingAnchor, constant: 170),
-           mode.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 490),
+           mode.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 530),
            mode.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
            mode.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
            
            durationLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
-           durationLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 530),
+           durationLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 580),
            durationLabel.widthAnchor.constraint(equalToConstant: 100),
            durationLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
 
            duration.leadingAnchor.constraint(equalTo: durationLabel.trailingAnchor, constant: 190),
-           duration.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 530),
+           duration.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 580),
            duration.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
            duration.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
            
            bodyPartLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
-           bodyPartLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 580),
+           bodyPartLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 630),
            bodyPartLabel.widthAnchor.constraint(equalToConstant: 100),
            bodyPartLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
 
            bodyPart.leadingAnchor.constraint(equalTo: bodyPartLabel.trailingAnchor, constant: 190),
-           bodyPart.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 580),
+           bodyPart.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 630),
            bodyPart.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
            bodyPart.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
            
            goalLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
-           goalLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 630),
+           goalLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 680),
            goalLabel.widthAnchor.constraint(equalToConstant: 100),
            goalLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
 
            goal.leadingAnchor.constraint(equalTo: goalLabel.trailingAnchor, constant: 170),
-           goal.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 630),
+           goal.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 680),
            goal.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
            goal.heightAnchor.constraint(greaterThanOrEqualToConstant: 70)
            
@@ -188,8 +214,9 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
                 let duration = dataDict["duration"] as? String ?? ""
                 let part = dataDict["bodyPart"] as? String ?? ""
                 let goals = dataDict["goal"] as? String ?? ""
+                let catergory = dataDict["catergory"] as? String ?? ""
                 let recordID = snapshot.key
-                let data = ExerciseListOne(name: name, image:imageURL, recordID:recordID, details:details,mode: mode,duration: duration,bodyPart: part,goal: goals)
+                let data = ExerciseListOne(name: name, image:imageURL, recordID:recordID, details:details,mode: mode,duration: duration,bodyPart: part,goal: goals,catergory: catergory)
                 print("data",data)
                 self.dataSource.append(data)
                 
@@ -200,6 +227,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
                     self.duration.text = duration
                     self.bodyPart.text = part
                     self.goal.text = goals
+                    self.catergory.text = catergory
                 }
             }
         }

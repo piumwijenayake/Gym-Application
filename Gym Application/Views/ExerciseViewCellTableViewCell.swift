@@ -37,7 +37,7 @@ class ExerciseTableViewCell: UITableViewCell {
         contentView.addSubview(subtitleLabel)
         
         actionButton = UIButton(type: .system)
-        actionButton.setTitle("Button", for: .normal)
+        actionButton.setTitle("More", for: .normal)
         actionButton.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(actionButton)
                 
