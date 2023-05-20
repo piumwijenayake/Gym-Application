@@ -14,8 +14,18 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var tableView: UITableView!
     var databaseRef: DatabaseReference!
-    var dataSource: [Exercise] = []
+    var dataSource: [ExerciseListOne] = []
     var documentID:String!
+    var detailsLabel: UILabel!
+    var details: UILabel!
+    var durationLabel: UILabel!
+    var duration: UILabel!
+    var modeLabel: UILabel!
+    var mode: UILabel!
+    var bodyPartLabel: UILabel!
+    var bodyPart: UILabel!
+    var goalLabel: UILabel!
+    var goal: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,8 +36,137 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(ExerciseTableViewCell.self, forCellReuseIdentifier: "ExerciseCell")
+        tableView.register(ExerciseDetailViewTableViewCell.self, forCellReuseIdentifier: "ExerciseCell")
+
         view.addSubview(tableView)
+        detailsLabel = UILabel(frame: CGRect(x: 20, y: 20, width: 200, height: 30))
+        detailsLabel.textColor = .black
+        detailsLabel.text = "Details"
+        detailsLabel.font = UIFont.systemFont(ofSize: 18)
+        
+        view.addSubview(detailsLabel)
+        details = UILabel()
+        //details.frame = CGRect(x: 20, y: 20, width: 200, height: 40)
+        details.textColor = .black
+        details.font = UIFont.systemFont(ofSize: 13)
+        details.numberOfLines = 0
+        self.view.addSubview(details)
+        modeLabel = UILabel(frame: CGRect(x: 20, y: 20, width: 200, height: 30))
+        modeLabel.textColor = .black
+        modeLabel.text = "Mode"
+        modeLabel.font = UIFont.systemFont(ofSize: 18)
+        view.addSubview(modeLabel)
+        mode = UILabel()
+        //details.frame = CGRect(x: 20, y: 20, width: 200, height: 40)
+        mode.textColor = .black
+        mode.font = UIFont.systemFont(ofSize: 15)
+        mode.numberOfLines = 0
+        
+        view.addSubview(mode)
+        
+        durationLabel = UILabel(frame: CGRect(x: 20, y: 20, width: 200, height: 30))
+        durationLabel.textColor = .black
+        durationLabel.text = "Duration"
+        durationLabel.font = UIFont.systemFont(ofSize: 18)
+        view.addSubview(durationLabel)
+        duration = UILabel()
+        //details.frame = CGRect(x: 20, y: 20, width: 200, height: 40)
+        duration.textColor = .black
+        duration.font = UIFont.systemFont(ofSize: 15)
+        duration.numberOfLines = 0
+        
+        view.addSubview(duration)
+        
+        bodyPartLabel = UILabel(frame: CGRect(x: 20, y: 20, width: 200, height: 30))
+        bodyPartLabel.textColor = .black
+        bodyPartLabel.text = "Body Part"
+        bodyPartLabel.font = UIFont.systemFont(ofSize: 18)
+        view.addSubview(bodyPartLabel)
+        bodyPart = UILabel()
+        //details.frame = CGRect(x: 20, y: 20, width: 200, height: 40)
+        bodyPart.textColor = .black
+        bodyPart.font = UIFont.systemFont(ofSize: 15)
+        bodyPart.numberOfLines = 0
+        view.addSubview(bodyPart)
+        goalLabel = UILabel(frame: CGRect(x: 20, y: 20, width: 200, height: 30))
+        goalLabel.textColor = .black
+        goalLabel.text = "Our Goal"
+        goalLabel.font = UIFont.systemFont(ofSize: 18)
+        view.addSubview(goalLabel)
+        goal = UILabel()
+        //details.frame = CGRect(x: 20, y: 20, width: 200, height: 40)
+        goal.textColor = .black
+        goal.font = UIFont.systemFont(ofSize: 15)
+       
+        
+        view.addSubview(goal)
+        detailsLabel.translatesAutoresizingMaskIntoConstraints = false
+        details.translatesAutoresizingMaskIntoConstraints = false
+        modeLabel.translatesAutoresizingMaskIntoConstraints = false
+        mode.translatesAutoresizingMaskIntoConstraints = false
+        durationLabel.translatesAutoresizingMaskIntoConstraints = false
+        duration.translatesAutoresizingMaskIntoConstraints = false
+        bodyPartLabel.translatesAutoresizingMaskIntoConstraints = false
+        bodyPart.translatesAutoresizingMaskIntoConstraints = false
+        goalLabel.translatesAutoresizingMaskIntoConstraints = false
+        goal.translatesAutoresizingMaskIntoConstraints = false
+        details.widthAnchor.constraint(equalToConstant: 370).isActive = true
+        goal.widthAnchor.constraint(equalToConstant: 370).isActive = true
+        details.heightAnchor.constraint(greaterThanOrEqualToConstant: 70).isActive = true
+
+        NSLayoutConstraint.activate([
+           detailsLabel.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -470),
+           detailsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+           detailsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+           detailsLabel.heightAnchor.constraint(equalToConstant: 30),
+           
+           //details.topAnchor.constraint(equalTo: detailsLabel.bottomAnchor, constant: -330),
+           details.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+           details.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 420),
+           details.widthAnchor.constraint(equalToConstant: 900),
+           details.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
+           
+           modeLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+           modeLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 490),
+           modeLabel.widthAnchor.constraint(equalToConstant: 100),
+           modeLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
+
+           mode.leadingAnchor.constraint(equalTo: modeLabel.trailingAnchor, constant: 170),
+           mode.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 490),
+           mode.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+           mode.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
+           
+           durationLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+           durationLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 530),
+           durationLabel.widthAnchor.constraint(equalToConstant: 100),
+           durationLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
+
+           duration.leadingAnchor.constraint(equalTo: durationLabel.trailingAnchor, constant: 190),
+           duration.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 530),
+           duration.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+           duration.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
+           
+           bodyPartLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+           bodyPartLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 580),
+           bodyPartLabel.widthAnchor.constraint(equalToConstant: 100),
+           bodyPartLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
+
+           bodyPart.leadingAnchor.constraint(equalTo: bodyPartLabel.trailingAnchor, constant: 190),
+           bodyPart.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 580),
+           bodyPart.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+           bodyPart.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
+           
+           goalLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
+           goalLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 630),
+           goalLabel.widthAnchor.constraint(equalToConstant: 100),
+           goalLabel.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
+
+           goal.leadingAnchor.constraint(equalTo: goalLabel.trailingAnchor, constant: 170),
+           goal.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 630),
+           goal.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -10),
+           goal.heightAnchor.constraint(greaterThanOrEqualToConstant: 70)
+           
+           ])
         guard let docID = documentID else {
             // Handle the case when documentID is nil
             return
@@ -44,14 +183,23 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
             if let dataDict = snapshot.value as? [String: Any] {
                 let name = dataDict["name"] as? String ?? ""
                 let imageURL = dataDict["image"] as? String ?? ""
-                
+                let details = dataDict["details"] as? String ?? ""
+                let mode = dataDict["mode"] as? String ?? ""
+                let duration = dataDict["duration"] as? String ?? ""
+                let part = dataDict["bodyPart"] as? String ?? ""
+                let goals = dataDict["goal"] as? String ?? ""
                 let recordID = snapshot.key
-                let data = Exercise(name: name, imageURL: imageURL, recordID: recordID)
-                print(data)
+                let data = ExerciseListOne(name: name, image:imageURL, recordID:recordID, details:details,mode: mode,duration: duration,bodyPart: part,goal: goals)
+                print("data",data)
                 self.dataSource.append(data)
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                    self.details.text = details
+                    self.mode.text = mode
+                    self.duration.text = duration
+                    self.bodyPart.text = part
+                    self.goal.text = goals
                 }
             }
         }
@@ -78,7 +226,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell", for: indexPath) as! ExerciseTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell", for: indexPath) as! ExerciseDetailViewTableViewCell
             
         let data = dataSource[indexPath.row]
         cell.configure(withData: data)
