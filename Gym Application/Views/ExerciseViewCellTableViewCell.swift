@@ -6,55 +6,104 @@
 //
 
 import UIKit
+import Kingfisher
 
+class ExerciseTableViewCell: UITableViewCell {
+    private var customImageView: UIImageView!
+    private var titleLabel: UILabel!
+    private var subtitleLabel: UILabel!
+    var actionButton: UIButton!
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        // Create and configure the image view
+        customImageView = UIImageView()
+        customImageView.contentMode = .scaleAspectFill
+        customImageView.clipsToBounds = true
+        customImageView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(customImageView)
+                
+                // Configure the title label
+        titleLabel = UILabel()
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 16)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(titleLabel)
+                
+                // Configure the subtitle label
+        subtitleLabel = UILabel()
+        subtitleLabel.font = UIFont.systemFont(ofSize: 14)
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(subtitleLabel)
+        
+        actionButton = UIButton(type: .system)
+        actionButton.setTitle("Button", for: .normal)
+        actionButton.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(actionButton)
+                
+                // Add constraints for the image view
+        NSLayoutConstraint.activate([
+                   customImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+                   customImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                   customImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                   customImageView.heightAnchor.constraint(equalToConstant: 200),
+                   //customImageView.widthAnchor.constraint(equalToConstant: 200) ,
+                   
+                   titleLabel.topAnchor.constraint(equalTo: customImageView.bottomAnchor, constant: 8),
+                   titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                   titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
+                   
+                 
+                   subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
+                    subtitleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+                   subtitleLabel.trailingAnchor.constraint(equalTo: actionButton.leadingAnchor, constant: 8),
 
-class ExerciseTableViewCell: UICollectionViewCell {
-    private let exerciseImageView = UIImageView()
-    private let nameLabel = UILabel()
-    private let durationLabel = UILabel()
+                   
+                   actionButton.centerYAnchor.constraint(equalTo: subtitleLabel.centerYAnchor),
+                   actionButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18),
+// Adjust the height of the image view as needed
+               ])
+                   contentView.bottomAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 8).isActive = true
+            }
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupImageView()
-        setupLabels()
-    }
     
-    required init?(coder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setupImageView() {
-        contentView.addSubview(exerciseImageView)
-        exerciseImageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            exerciseImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            exerciseImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
-            exerciseImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            exerciseImageView.heightAnchor.constraint(equalToConstant: 100)
-        ])
-    }
-    
-    private func setupLabels() {
-        contentView.addSubview(nameLabel)
-        contentView.addSubview(durationLabel)
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        durationLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
-            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -16),
-            nameLabel.topAnchor.constraint(equalTo: exerciseImageView.bottomAnchor, constant: 8),
-            durationLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
-            durationLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor),
-            durationLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
-            durationLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
-        ])
-    }
-    
-    func configure(with exercise: Exercise) {
-        nameLabel.text = exercise.name
-        durationLabel.text = "Duration: \(exercise.duration) minutes"
-        if let imageURL = URL(string: exercise.imageURL) {
-            exerciseImageView.kf.setImage(with: imageURL)
+    func configure(withData data: Exercise) {
+        
+            titleLabel.text = data.name
+            subtitleLabel.text = data.mode
+            
+            customImageView.image = UIImage(named: "placeholderImage") // Set your placeholder image name here
+            
+            if let imageURL = URL(string: data.imageURL) {
+                customImageView.kf.setImage(with: imageURL) { result in
+                    switch result {
+                    case .success(let value):
+                        // Image loaded successfully
+                        DispatchQueue.main.async {
+                            self.customImageView.image = value.image
+                        }
+                    case .failure(let error):
+                        // Error occurred while loading the image
+                        print("Image loading error: \(error)")
+                        DispatchQueue.main.async {
+                            self.customImageView.image = UIImage(named: "placeholderImage") // Set your placeholder image name here
+                        }
+                    }
+                }
+            } else {
+                // Invalid image URL, set a placeholder image
+                customImageView.image = UIImage(named: "placeholderImage") // Set your placeholder image name here
+            }
         }
     }
-}
+
+
+
+
+
+
+

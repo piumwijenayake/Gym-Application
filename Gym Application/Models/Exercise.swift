@@ -8,11 +8,11 @@
 import Foundation
 struct Exercise {
     let name: String
-    let duration: Int
+//    let duration: Int
     let imageURL: String
-    let medical: String
-    let bodyPart: String
-    let catergory: String
+//    let medical: String
+//    let bodyPart: String
+//    let catergory: String
     let mode: String
-    let goa: String
+//    let goa: String
 }
