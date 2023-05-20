@@ -13,6 +13,16 @@ struct Exercise {
 //    let medical: String
 //    let bodyPart: String
 //    let catergory: String
-    let mode: String
+    //let mode: String
+    let recordID: String
+//    let goa: String
+}
+struct ExerciseList {
+    let name: String
+//    let duration: Int
+    
+    let video: String
+    //let recordID: String
+    let duration: Int
 //    let goa: String
 }
