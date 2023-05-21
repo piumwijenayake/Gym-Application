@@ -29,6 +29,7 @@
 		0281A9E32A17400700155643 /* CustomTextFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0281A9E22A17400700155643 /* CustomTextFields.swift */; };
 		0281A9E62A17459800155643 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 0281A9E52A17459800155643 /* FirebaseDatabase */; };
 		0281A9E82A17467B00155643 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0281A9E72A17467B00155643 /* GoogleService-Info.plist */; };
+		02854A7F2A19CE4600F0C7E2 /* CustomScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A7E2A19CE4600F0C7E2 /* CustomScheduleViewController.swift */; };
 		02890A122A0B7F7900B02C35 /* CatergoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */; };
 		0294A5422A10A2A600940D99 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */; };
 		0294A5442A10C4F100940D99 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5432A10C4F100940D99 /* Header.swift */; };
@@ -71,6 +72,7 @@
 		027959862A115FA30047F606 /* LabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelView.swift; sourceTree = "<group>"; };
 		0281A9E22A17400700155643 /* CustomTextFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextFields.swift; sourceTree = "<group>"; };
 		0281A9E72A17467B00155643 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		02854A7E2A19CE4600F0C7E2 /* CustomScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScheduleViewController.swift; sourceTree = "<group>"; };
 		02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryViewController.swift; sourceTree = "<group>"; };
 		0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		0294A5432A10C4F100940D99 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				02E50E5E2A17B8AA00AECAC2 /* ListViewController.swift */,
 				02625DCC2A18E21B003B7431 /* DetailsViewController.swift */,
 				021AC95F2A19727400C0C426 /* VideoViewController.swift */,
+				02854A7E2A19CE4600F0C7E2 /* CustomScheduleViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				0220B1D62A06B54A00706507 /* AppDelegate.swift in Sources */,
 				02C3296C2A0ABDF40084B077 /* TabBarControllerViewController.swift in Sources */,
 				027959852A1159520047F606 /* CaptureViewController.swift in Sources */,
+				02854A7F2A19CE4600F0C7E2 /* CustomScheduleViewController.swift in Sources */,
 				02141BCC2A167FEE000AABB2 /* CustomView.swift in Sources */,
 				0220B1D82A06B54A00706507 /* SceneDelegate.swift in Sources */,
 				02F283482A0FFA54004B39AD /* AuthService.swift in Sources */,

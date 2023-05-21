@@ -40,3 +40,13 @@ struct Videos{
     //let documentID:String
     let video:String
 }
+struct Data{
+    //let documentID:String
+    let name:String
+}
+struct schedule{
+    //let documentID:String
+    let name:String
+    let time:String
+    let date:String
+}

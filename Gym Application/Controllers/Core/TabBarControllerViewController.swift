@@ -8,38 +8,43 @@
 import UIKit
 
 class TabBarControllerViewController: UITabBarController {
-
+    var data: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemYellow
         setUpTabs()
+        
+        
         // Do any additional setup after loading the view.
     }
     private func setUpTabs(){
-        let home = HomeViewController()
-        let search = SearchViewController()
+        let home = ListViewController()
+        let search = CaptureViewController()
         let bmi = BMIViewController()
+        let schedule = CustomScheduleViewController()
         
         
         let nav1 = UINavigationController(rootViewController: home)
         
         let nav2 = UINavigationController(rootViewController: search)
         let nav3 = UINavigationController(rootViewController: bmi)
+        let nav4 = UINavigationController(rootViewController: schedule)
         
         nav1.tabBarItem.image = UIImage(systemName: "house")
        
 
         
-        nav2.tabBarItem.image = UIImage(systemName: "magnifyingglass")
+        nav2.tabBarItem.image = UIImage(systemName: "person")
        
        
 
         nav3.tabBarItem.image = UIImage(systemName: "scalemass")
+        nav4.tabBarItem.image = UIImage(systemName: "calendar")
         
         nav1.title = "Home"
         nav2.title = "Search"
         nav3.title = "BMI Calculator"
-        
+        nav4.title = "Schedules"
         //changing color
         
         tabBar.tintColor = .white
@@ -54,7 +59,7 @@ class TabBarControllerViewController: UITabBarController {
         
                 
                 
-        setViewControllers([nav1,nav2,nav3],
+        setViewControllers([nav1,nav2,nav3,nav4],
                            animated: true)
         
     }

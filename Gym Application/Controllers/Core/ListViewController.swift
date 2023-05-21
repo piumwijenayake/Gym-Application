@@ -15,7 +15,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var tableView: UITableView!
     var databaseRef: DatabaseReference!
     var dataSource: [Exercise] = []
-    
+    var data:String!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -31,6 +31,8 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         // Load data from Firebase
         loadDataFromFirebase()
+        
+      
     }
     
     func loadDataFromFirebase() {

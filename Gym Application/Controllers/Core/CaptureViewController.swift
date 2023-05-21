@@ -196,7 +196,7 @@ class CaptureViewController: UIViewController {
                     print("Data updated successfully!")
                     let anotherViewController = ListViewController()
                     
-                    self.navigationController?.pushViewController(anotherViewController, animated: true)
+                    
                 }
             }
                      // Output: "Hello, World!"

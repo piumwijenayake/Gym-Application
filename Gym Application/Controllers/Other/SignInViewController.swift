@@ -115,7 +115,8 @@ class SignInViewController: UIViewController {
                         if username == enteredUsername && password == enteredPassword {
                             
                             // User authentication successful
-                            let vc = CaptureViewController( )
+                            let vc = TabBarControllerViewController( )
+                            
                            
                             vc.data = recordID
                             self.navigationController?.pushViewController(vc, animated: true)
