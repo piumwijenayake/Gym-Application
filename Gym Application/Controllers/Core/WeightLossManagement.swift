@@ -1,13 +1,13 @@
 //
-//  FItness PlanViewController.swift
+//  WeightLossManagement.swift
 //  Gym Application
 //
-//  Created by Piumi Wijenayake on 2023-05-21.
+//  Created by Piumi Wijenayake on 2023-05-22.
 //
 
 import UIKit
 
-class FItness_PlanViewController: UIViewController {
+class WeightLossManagement: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,7 +15,7 @@ class FItness_PlanViewController: UIViewController {
         title = "Fitness Packages"
         
         // First Card
-        let firstCardView = createCardView(color: .systemBlue, text: "Weight Loss", imageName: "healthy")
+        let firstCardView = createCardView(color: .systemBlue, text: "Meal Timetable", imageName: "healthy")
         firstCardView.isUserInteractionEnabled = true
         firstCardView.tag = 0
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleCardTap(_:)))
@@ -31,14 +31,14 @@ class FItness_PlanViewController: UIViewController {
         ])
         
         // Second Card
-        let secondCardView = createCardView(color: .systemGreen, text: "Weight Gain", imageName: "exercise")
+        let secondCardView = createCardView(color: .systemGreen, text: "Fitness Package", imageName: "exercise")
         secondCardView.isUserInteractionEnabled = true
         secondCardView.tag = 1
-    //    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleCardTap(_:)))
-
+        //    let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleCardTap(_:)))
+        
         secondCardView.addGestureRecognizer(secondTapGestureRecognizer)
         view.addSubview(secondCardView)
-
+        
         view.addSubview(secondCardView)
         NSLayoutConstraint.activate([
             secondCardView.topAnchor.constraint(equalTo: firstCardView.bottomAnchor, constant: 120),
@@ -88,15 +88,13 @@ class FItness_PlanViewController: UIViewController {
         
         switch tappedCardIndex {
         case 0:
+            // Navigate to the first view controller
+            print("nav")
+        case 1:
+            // Navigate to the second view controller
             let vc = WeightLossViewController()
             self.navigationController?.pushViewController(vc, animated: true)
             
-           print("nav")
-        case 1:
-            // Navigate to the second view controller
-            let vc = FitnessManagementViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        
         default:
             break
         }

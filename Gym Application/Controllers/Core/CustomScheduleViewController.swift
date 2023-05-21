@@ -191,7 +191,7 @@ class CustomScheduleViewController:UIViewController {
         // Dismiss the custom date picker
         dismiss(animated: true, completion: nil)
         
-        print(data)
+       // print(data)
         let databaseRef = Database.database().reference()
         let data: [String: Any] = [
             "name": textField.text ?? "",

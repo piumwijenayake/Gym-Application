@@ -1,5 +1,5 @@
 //
-//  FitnessManagementViewController.swift
+//  WeightLossViewController.swift
 //  Gym Application
 //
 //  Created by Piumi Wijenayake on 2023-05-22.
@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseDatabase
-class FitnessManagementViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class WeightLossViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tableView: UITableView!
     var databaseRef: DatabaseReference!
@@ -35,7 +35,7 @@ class FitnessManagementViewController: UIViewController, UITableViewDataSource, 
     }
     
     func loadDataFromFirebase() {
-        databaseRef.child("ExercisesData").observe(.childAdded) { (snapshot) in
+        databaseRef.child("ExercisesWeightLoss").observe(.childAdded) { (snapshot) in
             if let dataDict = snapshot.value as? [String: Any] {
                 let name = dataDict["name"] as? String ?? ""
                 let imageURL = dataDict["image"] as? String ?? ""
@@ -55,7 +55,7 @@ class FitnessManagementViewController: UIViewController, UITableViewDataSource, 
           let selectedData = dataSource[sender.tag]
           let documentID = selectedData.recordID
           print("Selected document ID:", documentID)
-          let detailViewController = FitnessPlanDetailViewController()
+          let detailViewController = WeightLossDetailControllerViewController()
 
                 // Set the document ID property of the destination view controller
         detailViewController.documentID = documentID

@@ -6,6 +6,7 @@
 ////
 //
 import UIKit
+import FirebaseDatabase
 class BMIViewController: UIViewController {
     var recieved: String?
     var data1: String?
@@ -152,8 +153,28 @@ class BMIViewController: UIViewController {
           
         let bmi = heights! / (heights! * weights!)
          
-         dataLabel1.text = String(format: "%.2f", bmi)
+         dataLabel1.text = String(format: "Your BMI %.2f", bmi)
          dataLabel1.textColor = .white
+        let databaseRef = Database.database().reference()
+        let data = [
+            "name": "test",
+            "height": heights!,
+            "weight": weights!,
+            "bmivalue": bmi
+            // Add more key-value pairs as needed
+        ] as [String : Any]
+        let documetid="1001"
+        let childRef = databaseRef.child("bmi")
+        
+        // Use the child reference to set the data
+        childRef.setValue(data) { error, _ in
+            if let error = error {
+                print("Error saving data to Firebase: \(error.localizedDescription)")
+            } else {
+                print("Data saved successfully")
+            }
+            
+        }
          
           
           let overweightThreshold: Double = 25

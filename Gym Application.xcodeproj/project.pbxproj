@@ -36,6 +36,10 @@
 		02854A872A1AA07700F0C7E2 /* ExeerciseFitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A862A1AA07700F0C7E2 /* ExeerciseFitnessViewController.swift */; };
 		02854A892A1AA9B300F0C7E2 /* FitnessPlanDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A882A1AA9B300F0C7E2 /* FitnessPlanDetailViewController.swift */; };
 		02854A8B2A1AAD7100F0C7E2 /* ExerciseFitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A8A2A1AAD7100F0C7E2 /* ExerciseFitness.swift */; };
+		02854A8D2A1AC60D00F0C7E2 /* WeightLossManagement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A8C2A1AC60D00F0C7E2 /* WeightLossManagement.swift */; };
+		02854A8F2A1AC6BE00F0C7E2 /* WeightLossViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A8E2A1AC6BE00F0C7E2 /* WeightLossViewController.swift */; };
+		02854A912A1AC70E00F0C7E2 /* WeightLoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A902A1AC70E00F0C7E2 /* WeightLoss.swift */; };
+		02854A932A1ACB6100F0C7E2 /* WeightLossDetailControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A922A1ACB6100F0C7E2 /* WeightLossDetailControllerViewController.swift */; };
 		02890A122A0B7F7900B02C35 /* CatergoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */; };
 		0294A5422A10A2A600940D99 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */; };
 		0294A5442A10C4F100940D99 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5432A10C4F100940D99 /* Header.swift */; };
@@ -85,6 +89,10 @@
 		02854A862A1AA07700F0C7E2 /* ExeerciseFitnessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExeerciseFitnessViewController.swift; sourceTree = "<group>"; };
 		02854A882A1AA9B300F0C7E2 /* FitnessPlanDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessPlanDetailViewController.swift; sourceTree = "<group>"; };
 		02854A8A2A1AAD7100F0C7E2 /* ExerciseFitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseFitness.swift; sourceTree = "<group>"; };
+		02854A8C2A1AC60D00F0C7E2 /* WeightLossManagement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLossManagement.swift; sourceTree = "<group>"; };
+		02854A8E2A1AC6BE00F0C7E2 /* WeightLossViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLossViewController.swift; sourceTree = "<group>"; };
+		02854A902A1AC70E00F0C7E2 /* WeightLoss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLoss.swift; sourceTree = "<group>"; };
+		02854A922A1ACB6100F0C7E2 /* WeightLossDetailControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightLossDetailControllerViewController.swift; sourceTree = "<group>"; };
 		02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryViewController.swift; sourceTree = "<group>"; };
 		0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		0294A5432A10C4F100940D99 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -190,6 +198,7 @@
 				02625DCE2A1908B0003B7431 /* ExerciseDetailViewTableViewCell.swift */,
 				02854A862A1AA07700F0C7E2 /* ExeerciseFitnessViewController.swift */,
 				02854A8A2A1AAD7100F0C7E2 /* ExerciseFitness.swift */,
+				02854A902A1AC70E00F0C7E2 /* WeightLoss.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -250,6 +259,7 @@
 			isa = PBXGroup;
 			children = (
 				02C3296B2A0ABDF40084B077 /* TabBarControllerViewController.swift */,
+				02854A922A1ACB6100F0C7E2 /* WeightLossDetailControllerViewController.swift */,
 				02C3296D2A0ABF710084B077 /* HomeViewController.swift */,
 				02C3296F2A0ABFA40084B077 /* SearchViewController.swift */,
 				02C329712A0ABFFD0084B077 /* BMIViewController.swift */,
@@ -264,6 +274,8 @@
 				02854A822A1A4E3200F0C7E2 /* FItness PlanViewController.swift */,
 				02854A842A1AA01800F0C7E2 /* FitnessManagementViewController.swift */,
 				02854A882A1AA9B300F0C7E2 /* FitnessPlanDetailViewController.swift */,
+				02854A8C2A1AC60D00F0C7E2 /* WeightLossManagement.swift */,
+				02854A8E2A1AC6BE00F0C7E2 /* WeightLossViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -351,6 +363,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				022C276E2A0ED1AF00277897 /* CustomTextField.swift in Sources */,
+				02854A8F2A1AC6BE00F0C7E2 /* WeightLossViewController.swift in Sources */,
 				02E50E612A17D98500AECAC2 /* HeaderViewController.swift in Sources */,
 				02854A892A1AA9B300F0C7E2 /* FitnessPlanDetailViewController.swift in Sources */,
 				02854A832A1A4E3200F0C7E2 /* FItness PlanViewController.swift in Sources */,
@@ -364,6 +377,7 @@
 				02AC37892A0815E0003792DC /* Extensions.swift in Sources */,
 				02625DCF2A1908B0003B7431 /* ExerciseDetailViewTableViewCell.swift in Sources */,
 				027959872A115FA30047F606 /* LabelView.swift in Sources */,
+				02854A8D2A1AC60D00F0C7E2 /* WeightLossManagement.swift in Sources */,
 				02AC37872A07F8C0003792DC /* WelcomeViewController.swift in Sources */,
 				0294A5462A10F06A00940D99 /* CircularButtonView.swift in Sources */,
 				02C329722A0ABFFD0084B077 /* BMIViewController.swift in Sources */,
@@ -386,7 +400,9 @@
 				027959852A1159520047F606 /* CaptureViewController.swift in Sources */,
 				02854A7F2A19CE4600F0C7E2 /* CustomScheduleViewController.swift in Sources */,
 				02141BCC2A167FEE000AABB2 /* CustomView.swift in Sources */,
+				02854A912A1AC70E00F0C7E2 /* WeightLoss.swift in Sources */,
 				0220B1D82A06B54A00706507 /* SceneDelegate.swift in Sources */,
+				02854A932A1ACB6100F0C7E2 /* WeightLossDetailControllerViewController.swift in Sources */,
 				02F283482A0FFA54004B39AD /* AuthService.swift in Sources */,
 				02F2834A2A100043004B39AD /* RegisterUserRequest.swift in Sources */,
 				022C27702A0ED3F400277897 /* CustomButton.swift in Sources */,

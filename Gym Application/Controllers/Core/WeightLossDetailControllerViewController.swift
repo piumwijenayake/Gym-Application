@@ -1,5 +1,5 @@
 //
-//  FitnessPlanDetailViewController.swift
+//  WeightLossDetailControllerViewController.swift
 //  Gym Application
 //
 //  Created by Piumi Wijenayake on 2023-05-22.
@@ -7,7 +7,7 @@
 
 import UIKit
 import FirebaseDatabase
-class FitnessPlanDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class WeightLossDetailControllerViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tableView: UITableView!
     var databaseRef: DatabaseReference!
@@ -200,11 +200,11 @@ class FitnessPlanDetailViewController: UIViewController, UITableViewDataSource, 
     
     func loadDataFromFirebase(with documentID: String) {
         print(documentID)
-        let ref = databaseRef.child("ExercisesData").child(documentID)
+        let ref = databaseRef.child("ExercisesWeightLoss").child(documentID)
         
         ref.observeSingleEvent(of: .value) { (snapshot) in
             if let dataDict = snapshot.value as? [String: Any] {
-                let name = dataDict["name"] as? String ?? ""
+                let name = dataDict["names"] as? String ?? ""
                 let imageURL = dataDict["image"] as? String ?? ""
                 let details = dataDict["details"] as? String ?? ""
                 let mode = dataDict["mode"] as? String ?? ""
