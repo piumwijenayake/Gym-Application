@@ -198,6 +198,7 @@ class CustomScheduleViewController:UIViewController {
             "time": formattedDate,
             "date": formattedTime,
             // Add more key-value pairs as needed
+            //test
         ]
         let documetid="1001"
         let childRef = databaseRef.child("customschedule").child(documetid)
