@@ -12,6 +12,7 @@ class TabBarControllerViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemYellow
+        navigationItem.hidesBackButton = true
         setUpTabs()
         
         

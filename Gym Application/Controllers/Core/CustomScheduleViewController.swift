@@ -22,6 +22,7 @@ class CustomScheduleViewController:UIViewController {
     // private let headerView = AuthView(title: "Custom Schedule", subTitle: "Time to Create Your Schedule")
     //var doneButton: UIButton!
     var button: UIButton!
+    var viewButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -97,6 +98,12 @@ class CustomScheduleViewController:UIViewController {
         button.backgroundColor = .blue
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         view.addSubview(button)
+        viewButton = UIButton(type: .system)
+        viewButton.translatesAutoresizingMaskIntoConstraints = false
+        viewButton.setTitle("Add", for: .normal)
+        viewButton.backgroundColor = .blue
+        viewButton.addTarget(self, action: #selector(buttonOpened), for: .touchUpInside)
+        view.addSubview(viewButton)
         
         // Set up layout constraints
         NSLayoutConstraint.activate([
@@ -144,7 +151,11 @@ class CustomScheduleViewController:UIViewController {
             timePicker.bottomAnchor.constraint(equalTo: button.topAnchor, constant: -16),
             button.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             button.widthAnchor.constraint(equalToConstant: 200),
-            button.heightAnchor.constraint(equalToConstant: 40)
+            button.heightAnchor.constraint(equalToConstant: 40),
+            viewButton.topAnchor.constraint(equalTo: button.bottomAnchor, constant: 16),
+            viewButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            viewButton.widthAnchor.constraint(equalToConstant: 200),
+            viewButton.heightAnchor.constraint(equalToConstant: 40)
             
             
         ])
@@ -156,7 +167,7 @@ class CustomScheduleViewController:UIViewController {
         
         let selectedDate = datePicker.date
         let formattedDate = dateFormatter.string(from: selectedDate)
-
+        
         selectedDateLabel.text = formattedDate
         
         dateFormatter.timeStyle = .short
@@ -191,6 +202,11 @@ class CustomScheduleViewController:UIViewController {
             }
             
         }
+    }
+    @objc func buttonOpened() {
+        let vc = AddCustomSchedule()
+        navigationController?.pushViewController(vc, animated: false)
+
     }
 }
 
