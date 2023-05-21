@@ -22,7 +22,7 @@ class CustomButton: UIButton {
            
            self.backgroundColor = hasBackground ? .white : .clear
            
-           let titleColor: UIColor = hasBackground ? .black : .blue
+           let titleColor: UIColor = hasBackground ? .black : .white
            self.setTitleColor(titleColor, for: .normal)
            
            switch fontSize {

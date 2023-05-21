@@ -131,14 +131,14 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
         details.heightAnchor.constraint(greaterThanOrEqualToConstant: 70).isActive = true
 
         NSLayoutConstraint.activate([
-           detailsLabel.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -470),
+           detailsLabel.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -440),
            detailsLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
            detailsLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
            detailsLabel.heightAnchor.constraint(equalToConstant: 30),
            
            //details.topAnchor.constraint(equalTo: detailsLabel.bottomAnchor, constant: -330),
            details.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 10),
-           details.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 420),
+           details.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 440),
            details.widthAnchor.constraint(equalToConstant: 900),
            details.heightAnchor.constraint(greaterThanOrEqualToConstant: 70),
            

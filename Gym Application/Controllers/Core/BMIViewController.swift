@@ -198,6 +198,8 @@ class BMIViewController: UIViewController {
     }
     @objc func fitnessBMI(){
         print("test")
+        let vc = FItness_PlanViewController()
+        self.navigationController?.pushViewController(vc, animated: true)
     }
    
 }

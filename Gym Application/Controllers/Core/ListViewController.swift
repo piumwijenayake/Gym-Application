@@ -19,8 +19,36 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        title = "Home"
         // Initialize Firebase Database reference
         databaseRef = Database.database().reference()
+        let stackView = UIStackView()
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.spacing = 8
+        stackView.backgroundColor = .black
+
+        // Create an icon view
+        let iconView = UIImageView(image: UIImage(systemName: "power"))
+        iconView.translatesAutoresizingMaskIntoConstraints = false
+        iconView.contentMode = .scaleAspectFit
+
+        // Create a label
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Label"
+        label.textAlignment = .left
+        label.textColor = .black
+        label.font = UIFont.systemFont(ofSize: 16)
+
+        // Add the icon view and label to the stack view
+        stackView.addArrangedSubview(iconView)
+        stackView.addArrangedSubview(label)
+
+        // Add the stack view to the parent view
+        view.addSubview(stackView)
+
         
         // Create UITableView programmatically
         tableView = UITableView(frame: view.bounds, style: .plain)
@@ -29,6 +57,17 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.register(ExerciseTableViewCell.self, forCellReuseIdentifier: "ExerciseCell")
         view.addSubview(tableView)
         
+        NSLayoutConstraint.activate([
+                    stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 120),
+                    stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                    stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                    
+                    tableView.topAnchor.constraint(equalTo: stackView.topAnchor, constant: 120),
+                    tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                    tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+
+                ])
         // Load data from Firebase
         loadDataFromFirebase()
         

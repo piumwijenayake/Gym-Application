@@ -50,9 +50,9 @@ class TabBarControllerViewController: UITabBarController {
         //changing color
         
         tabBar.tintColor = .white
-        UITabBar.appearance().tintColor = .white
+        UITabBar.appearance().tintColor = .black
         UITabBar.appearance().unselectedItemTintColor = .gray
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.white], for: .selected)
+        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.black], for: .selected)
         UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
 
             

@@ -206,6 +206,7 @@ class CustomScheduleViewController:UIViewController {
     @objc func buttonOpened() {
         let vc = AddCustomSchedule()
         navigationController?.pushViewController(vc, animated: false)
+        
 
     }
 }
