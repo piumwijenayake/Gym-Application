@@ -82,9 +82,9 @@ class FitnessPlanDetailViewController: UIViewController, UITableViewDataSource, 
         
         let data = dataSource[indexPath.row]
         cell.configure(withData: data)
-        cell.actionButton.tag = indexPath.row // Set the row index as the button tag
-        cell.actionButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-        
+//        cell.actionButton.tag = indexPath.row // Set the row index as the button tag
+//        cell.actionButton.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+//        
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
