@@ -36,3 +36,7 @@ struct ExerciseListOne {
     let goal:String
     let catergory:String
 }
+struct Videos{
+    //let documentID:String
+    let video:String
+}

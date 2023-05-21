@@ -237,7 +237,7 @@ class DetailsViewController: UIViewController, UITableViewDataSource, UITableVie
           let selectedData = dataSource[sender.tag]
           let documentID = selectedData.recordID
           print("Selected document ID:", documentID)
-          let detailViewController = DetailsViewController()
+          let detailViewController = VideoViewController()
                 
                 // Set the document ID property of the destination view controller
           detailViewController.documentID = documentID
