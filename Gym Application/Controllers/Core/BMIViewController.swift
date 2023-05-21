@@ -19,7 +19,8 @@ class BMIViewController: UIViewController {
     private let imageView = UIImageView()
     private let heigths = LabelView(title: "Height:")
     private let weights = LabelView(title: "Weight")
-    private let calculate = CustomButton(title: "Claculate BMI", hasBackground: true, fontSize: .small)
+    private let calculate = CustomButton(title: "Calculate BMI", hasBackground: true, fontSize: .small)
+    private let fitness = CustomButton(title: "Fitness Plan", hasBackground: true, fontSize: .small)
     let customView = CustomView()
     private let imageView1 = UIImageView()
     let height: UITextField = {
@@ -48,7 +49,7 @@ class BMIViewController: UIViewController {
         super.viewDidLoad()
         imageView.isHidden = true
         self.calculate.addTarget(self, action: #selector(calculateBMI), for: .touchUpInside)
-        
+        self.fitness.addTarget(self, action: #selector(fitnessBMI), for: .touchUpInside)
         setupUI()
         
         
@@ -68,6 +69,7 @@ class BMIViewController: UIViewController {
         view.addSubview(weights)
         view.addSubview(weight)
         self.view.addSubview(calculate)
+        self.view.addSubview(fitness)
         view.addSubview(dataLabel1)
         view.addSubview(dataLabel)
         view.addSubview(imageView)
@@ -82,6 +84,7 @@ class BMIViewController: UIViewController {
         weights.translatesAutoresizingMaskIntoConstraints = false
         weight.translatesAutoresizingMaskIntoConstraints = false
         calculate.translatesAutoresizingMaskIntoConstraints = false
+        fitness.translatesAutoresizingMaskIntoConstraints = false
          dataLabel1.translatesAutoresizingMaskIntoConstraints = false
         dataLabel.translatesAutoresizingMaskIntoConstraints = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -110,9 +113,14 @@ class BMIViewController: UIViewController {
             calculate.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             calculate.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             calculate.heightAnchor.constraint(equalToConstant: 55),
+            
+            fitness.topAnchor.constraint(equalTo: calculate.bottomAnchor, constant: 20),
+            fitness.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            fitness.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            fitness.heightAnchor.constraint(equalToConstant: 55),
 
            
-            dataLabel1.topAnchor.constraint(equalTo: calculate.bottomAnchor, constant: 10),
+            dataLabel1.topAnchor.constraint(equalTo: fitness.bottomAnchor, constant: 10),
             dataLabel1.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 190),
             dataLabel1.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             dataLabel1.heightAnchor.constraint(equalToConstant: 55),
@@ -132,17 +140,17 @@ class BMIViewController: UIViewController {
         
     }
     @objc func calculateBMI(){
-        guard let heightText = height.text, let weightText = weight.text else {
+        let heightText = height.text
+        let weightText = weight.text
+        var heights = Double(heightText!)
+        var weights = Double(weightText!)
+        if  heightText == "" && weightText == "" {
               print("Error: Height or weight is nil.")
-              return
+             
           }
           
-          guard let heightVal = Double(heightText), let weightVal = Double(weightText) else {
-              print("Error: Failed to convert height or weight to Double.")
-              return
-          }
-        
-          let bmi = weightVal / (heightVal * heightVal)
+          
+        let bmi = heights! / (heights! * weights!)
          
          dataLabel1.text = String(format: "%.2f", bmi)
          dataLabel1.textColor = .white
@@ -156,36 +164,40 @@ class BMIViewController: UIViewController {
           if bmi > overweightThreshold {
               dataLabel.text = "OOPS! You are Overweight"
               dataLabel.textColor = .white
-              imageView.image = UIImage(named: "overweight")
-              imageView.isHidden = false
-          
+             // imageView.image = UIImage(named: "overweight")
+              //imageView.isHidden = false
+
                       // Add the image view to the view hierarchy
                  view.addSubview(imageView)
           } else if bmi < underweightThreshold {
               dataLabel.text = "OOPS! You are Underweight"
-              imageView.image = UIImage(named: "underweight")
-              
-              imageView.isHidden = false
+            //  imageView.image = UIImage(named: "underweight")
+
+            //  imageView.isHidden = false
           }
          else if bmi > obessetreshold {
-            
+
             dataLabel.text = "OOPS! You are Obsesse"
-            imageView.image = UIImage(named: "overweight")
-            imageView.isHidden = false
+            //imageView.image = UIImage(named: "overweight")
+            //imageView.isHidden = false
         }
         else if bmi > extremeobessetreshold {
-           
+
            dataLabel.text = "OOPS! You are Extremely Overweight"
-           imageView.image = UIImage(named: "obesse")
-           imageView.isHidden = false
+          // imageView.image = UIImage(named: "obesse")
+           //imageView.isHidden = false
        }
         else if bmi > normalweight {
               dataLabel.text = "Congratulations! You are Normal"
-            imageView.image = UIImage(named: "normal")
-            imageView.isHidden = false
+            //imageView.image = UIImage(named: "normal")
+           // imageView.isHidden = false
           }
-          
+
           print("BMI: \(bmi)")
-        
+       
     }
+    @objc func fitnessBMI(){
+        print("test")
+    }
+   
 }

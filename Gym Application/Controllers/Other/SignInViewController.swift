@@ -105,26 +105,24 @@ class SignInViewController: UIViewController {
             if let usersData = snapshot.value as? [String: Any] {
                 for (recordID, userData) in usersData {
                     if let userDict = userData as? [String: Any],
-                      // let recordID = userDict["recordID"] as? String,
+                       //let record = userDict["Record ID"] as? String,
                        let username = userDict["username"] as? String,
                        let password = userDict["password"] as? String {
                         print(username)
-                        print(password)
+                        
                         print("Record ID: \(recordID)")
+                        let vc = CaptureViewController()
+                        vc.data = username
+                        print(userData)
                         //print(_id)
                         if username == enteredUsername && password == enteredPassword {
                             
                             // User authentication successful
-                            let vc = TabBarControllerViewController( )
-                            
-                           
-                            vc.data = recordID
+                            let vc = TabBarControllerViewController()
                             self.navigationController?.pushViewController(vc, animated: true)
-
                             print("Authentication successful")
-                            
-                            // Perform actions such as navigating to the next screen
-                            return
+                                                    return
+                        
                         }
                     }
                 }

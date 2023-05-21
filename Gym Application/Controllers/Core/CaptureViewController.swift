@@ -116,7 +116,7 @@ class CaptureViewController: UIViewController {
                 contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
                             
-                headerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -110),
+                headerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -170),
                 headerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
                 headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
                             
@@ -160,7 +160,7 @@ class CaptureViewController: UIViewController {
                 fitness.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
                 fitness.heightAnchor.constraint(equalToConstant: 45),
                 
-                nextButton.topAnchor.constraint(equalTo: fitness.bottomAnchor, constant: 90),
+                nextButton.topAnchor.constraint(equalTo: fitness.bottomAnchor, constant: 50),
                 nextButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
                 nextButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
                 nextButton.heightAnchor.constraint(equalToConstant: 45),
@@ -172,7 +172,8 @@ class CaptureViewController: UIViewController {
             ])
         }
     @objc private func didNext() {
-        let data = data!
+        let data = "test"
+        print(data)
         let agetext = age.text
         let heightText = height.text
         let weightText = weight.text

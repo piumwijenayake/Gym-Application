@@ -31,6 +31,7 @@
 		0281A9E82A17467B00155643 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0281A9E72A17467B00155643 /* GoogleService-Info.plist */; };
 		02854A7F2A19CE4600F0C7E2 /* CustomScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A7E2A19CE4600F0C7E2 /* CustomScheduleViewController.swift */; };
 		02854A812A1A3F9300F0C7E2 /* AddCustomSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A802A1A3F9300F0C7E2 /* AddCustomSchedule.swift */; };
+		02854A832A1A4E3200F0C7E2 /* FItness PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A822A1A4E3200F0C7E2 /* FItness PlanViewController.swift */; };
 		02890A122A0B7F7900B02C35 /* CatergoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */; };
 		0294A5422A10A2A600940D99 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */; };
 		0294A5442A10C4F100940D99 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5432A10C4F100940D99 /* Header.swift */; };
@@ -75,6 +76,7 @@
 		0281A9E72A17467B00155643 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		02854A7E2A19CE4600F0C7E2 /* CustomScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScheduleViewController.swift; sourceTree = "<group>"; };
 		02854A802A1A3F9300F0C7E2 /* AddCustomSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomSchedule.swift; sourceTree = "<group>"; };
+		02854A822A1A4E3200F0C7E2 /* FItness PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FItness PlanViewController.swift"; sourceTree = "<group>"; };
 		02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryViewController.swift; sourceTree = "<group>"; };
 		0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		0294A5432A10C4F100940D99 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				021AC95F2A19727400C0C426 /* VideoViewController.swift */,
 				02854A7E2A19CE4600F0C7E2 /* CustomScheduleViewController.swift */,
 				02854A802A1A3F9300F0C7E2 /* AddCustomSchedule.swift */,
+				02854A822A1A4E3200F0C7E2 /* FItness PlanViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 			files = (
 				022C276E2A0ED1AF00277897 /* CustomTextField.swift in Sources */,
 				02E50E612A17D98500AECAC2 /* HeaderViewController.swift in Sources */,
+				02854A832A1A4E3200F0C7E2 /* FItness PlanViewController.swift in Sources */,
 				02F2834E2A101BE4004B39AD /* GenderViewController.swift in Sources */,
 				022C27662A0EBF8300277897 /* SignInViewController.swift in Sources */,
 				0220B1DA2A06B54A00706507 /* ViewController.swift in Sources */,

@@ -14,7 +14,8 @@ class TabBarControllerViewController: UITabBarController {
         view.backgroundColor = .systemYellow
         navigationItem.hidesBackButton = true
         setUpTabs()
-        
+        let data = data
+        print(data)
         
         // Do any additional setup after loading the view.
     }
