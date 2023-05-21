@@ -3,7 +3,7 @@ import FirebaseDatabase
 class CaptureViewController: UIViewController {
     // MARK: - UI Components
     private let contentView = UIView()
-    private let headerView = Header(title: "Let's Get To Know More", subTitle: "Tell Us Your Physical Attributes And Habits")
+    private let headerView = Header(title: "Let's Get To Know More", subTitle: "")
     private let genderLabel = LabelView(title: "Gender:")
     private let ageLabel = LabelView(title: "Age:")
     private let heightLabel = LabelView(title: "Height:")
@@ -17,6 +17,16 @@ class CaptureViewController: UIViewController {
     
     
     private let nextButton = CustomButton(title: "Next", hasBackground: true, fontSize: .big)
+    let gender: UITextField = {
+        let textField = UITextField(frame: CGRect(x: 20, y: 100, width: 10, height: 30))
+        textField.borderStyle = .roundedRect
+        textField.placeholder = "Enter Gender"
+        textField.font = UIFont.systemFont(ofSize: 16)
+        textField.textColor = UIColor.black
+        textField.backgroundColor = UIColor.white
+        // textField.delegate = self
+        return textField
+        }()
     let age: UITextField = {
         let textField = UITextField(frame: CGRect(x: 20, y: 100, width: 10, height: 30))
         textField.borderStyle = .roundedRect
@@ -95,6 +105,8 @@ class CaptureViewController: UIViewController {
             
             // Add UI components to contentView
             contentView.addSubview(headerView)
+            contentView.addSubview(genderLabel)
+            contentView.addSubview(gender)
             contentView.addSubview(ageLabel)
             contentView.addSubview(age)
             contentView.addSubview(heightLabel)
@@ -107,7 +119,7 @@ class CaptureViewController: UIViewController {
             contentView.addSubview(fitness)
             contentView.addSubview(nextButton)
             // Disable autoresizing mask translation for flexible constraints
-            [contentView, headerView, heightLabel, ageLabel,age,height, weightLabel, weight,medical,medicals,goal,fitness,nextButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
+            [contentView, headerView, heightLabel, genderLabel,gender,ageLabel,age,height, weightLabel, weight,medical,medicals,goal,fitness,nextButton].forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
             
             // Set contentView constraints
             NSLayoutConstraint.activate([
@@ -116,11 +128,19 @@ class CaptureViewController: UIViewController {
                 contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
                 contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
                             
-                headerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -170),
+                headerView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: -190),
                 headerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
                 headerView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
                             
-                ageLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 170),
+                genderLabel.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 130),
+                genderLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 70),
+                          
+                gender.topAnchor.constraint(equalTo: genderLabel.bottomAnchor, constant: 100),
+                gender.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+                gender.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+                gender.heightAnchor.constraint(equalToConstant: 45),
+
+                ageLabel.topAnchor.constraint(equalTo: genderLabel.bottomAnchor, constant: 95),
                 ageLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 70),
                           
                 age.topAnchor.constraint(equalTo: ageLabel.bottomAnchor, constant: 100),
@@ -160,7 +180,7 @@ class CaptureViewController: UIViewController {
                 fitness.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
                 fitness.heightAnchor.constraint(equalToConstant: 45),
                 
-                nextButton.topAnchor.constraint(equalTo: fitness.bottomAnchor, constant: 50),
+                nextButton.topAnchor.constraint(equalTo: fitness.bottomAnchor, constant: 30),
                 nextButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
                 nextButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
                 nextButton.heightAnchor.constraint(equalToConstant: 45),
@@ -174,6 +194,7 @@ class CaptureViewController: UIViewController {
     @objc private func didNext() {
         let data = "test"
         print(data)
+        let genderText = gender.text
         let agetext = age.text
         let heightText = height.text
         let weightText = weight.text
@@ -182,6 +203,7 @@ class CaptureViewController: UIViewController {
         let ref = Database.database().reference().child("users").child(data)
 
             let updates = [
+                "gender": genderText!,
                 "age": agetext!,
                 "height": heightText!,
                 "weight": weightText!,

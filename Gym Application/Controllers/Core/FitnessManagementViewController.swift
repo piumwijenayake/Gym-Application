@@ -1,24 +1,21 @@
 //
-//  ListViewController.swift
+//  FitnessManagementViewController.swift
 //  Gym Application
 //
-//  Created by Piumi Wijenayake on 2023-05-19.
+//  Created by Piumi Wijenayake on 2023-05-22.
 //
 
 import UIKit
 import FirebaseDatabase
-import Kingfisher
-
-
-class ListViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class FitnessManagementViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var tableView: UITableView!
     var databaseRef: DatabaseReference!
-    var dataSource: [Exercise] = []
+    var dataSource: [ExerciseData] = []
     var data:String!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Home"
+       // title = "Home"
         
         // Initialize Firebase Database reference
         databaseRef = Database.database().reference()
@@ -28,7 +25,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView = UITableView(frame: view.bounds, style: .plain)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(ExerciseTableViewCell.self, forCellReuseIdentifier: "ExerciseCell")
+        tableView.register(ExeerciseFitnessViewController.self, forCellReuseIdentifier: "ExerciseCell")
         view.addSubview(tableView)
         
         // Load data from Firebase
@@ -38,13 +35,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func loadDataFromFirebase() {
-        databaseRef.child("Exercises").observe(.childAdded) { (snapshot) in
+        databaseRef.child("ExercisesData").observe(.childAdded) { (snapshot) in
             if let dataDict = snapshot.value as? [String: Any] {
                 let name = dataDict["name"] as? String ?? ""
                 let imageURL = dataDict["image"] as? String ?? ""
-                let mode = dataDict["mode"] as? String ?? ""
+               // let mode = dataDict["mode"] as? String ?? ""
                 let recordID = snapshot.key
-                let data = Exercise(name: name, imageURL: imageURL, mode: mode,recordID: recordID)
+                let data = ExerciseData(name: name, image: imageURL,recordID: recordID)
                 print(data)
                 self.dataSource.append(data)
                 
@@ -58,13 +55,13 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
           let selectedData = dataSource[sender.tag]
           let documentID = selectedData.recordID
           print("Selected document ID:", documentID)
-          let detailViewController = DetailsViewController()
-                
+          let detailViewController = FitnessPlanDetailViewController()
+
                 // Set the document ID property of the destination view controller
-          detailViewController.documentID = documentID
-                
-                // Present the destination view controller
-        self.navigationController?.pushViewController(detailViewController, animated: true)
+          detailViewController.selectedid = documentID
+//
+//                // Present the destination view controller
+     self.navigationController?.pushViewController(detailViewController, animated: true)
 
           
           // Perform any operations based on the selected document ID
@@ -75,7 +72,7 @@ class ListViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell", for: indexPath) as! ExerciseTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ExerciseCell", for: indexPath) as! ExeerciseFitnessViewController
             
         let data = dataSource[indexPath.row]
         cell.configure(withData: data)

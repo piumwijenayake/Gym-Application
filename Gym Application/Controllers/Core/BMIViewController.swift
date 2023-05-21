@@ -198,8 +198,62 @@ class BMIViewController: UIViewController {
     }
     @objc func fitnessBMI(){
         print("test")
-        let vc = FItness_PlanViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        let heightText = height.text
+        let weightText = weight.text
+        var heights = Double(heightText!)
+        var weights = Double(weightText!)
+        if  heightText == "" && weightText == "" {
+              print("Error: Height or weight is nil.")
+             
+          }
+          
+          
+        let bmi = heights! / (heights! * weights!)
+         
+       
+         
+          
+          let overweightThreshold: Double = 25
+          let underweightThreshold: Double = 18.5
+          let obessetreshold: Double = 29.9
+        let extremeobessetreshold: Double = 35.5
+        let normalweight: Double = 18.49
+          if bmi > overweightThreshold {
+              
+             // imageView.image = UIImage(named: "overweight")
+              //imageView.isHidden = false
+
+                      // Add the image view to the view hierarchy
+                 view.addSubview(imageView)
+          } else if bmi < underweightThreshold {
+              dataLabel.text = "OOPS! You are Underweight"
+            //  imageView.image = UIImage(named: "underweight")
+
+            //  imageView.isHidden = false
+              let vc = FItness_PlanViewController()
+              self.navigationController?.pushViewController(vc, animated: true)
+          }
+         else if bmi > obessetreshold {
+
+            dataLabel.text = "OOPS! You are Obsesse"
+            //imageView.image = UIImage(named: "overweight")
+            //imageView.isHidden = false
+        }
+        else if bmi > extremeobessetreshold {
+
+           dataLabel.text = "OOPS! You are Extremely Overweight"
+          // imageView.image = UIImage(named: "obesse")
+           //imageView.isHidden = false
+       }
+        else if bmi > normalweight {
+              dataLabel.text = "Congratulations! You are Normal"
+            //imageView.image = UIImage(named: "normal")
+           // imageView.isHidden = false
+          }
+
+          print("BMI: \(bmi)")
+//        let vc = FItness_PlanViewController()
+//        self.navigationController?.pushViewController(vc, animated: true)
     }
    
 }

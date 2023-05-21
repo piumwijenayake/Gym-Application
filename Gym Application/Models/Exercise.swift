@@ -50,3 +50,16 @@ struct schedule{
     let time:String
     let date:String
 }
+struct ExerciseData{
+    //let documentID:String
+    let name:String
+    let image:String
+    let recordID:String
+}
+struct ExercisData{
+    //let documentID:String
+    let name:String
+    let image:String
+    let recordID:String
+    let duration:String
+}

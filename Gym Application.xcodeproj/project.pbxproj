@@ -32,6 +32,10 @@
 		02854A7F2A19CE4600F0C7E2 /* CustomScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A7E2A19CE4600F0C7E2 /* CustomScheduleViewController.swift */; };
 		02854A812A1A3F9300F0C7E2 /* AddCustomSchedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A802A1A3F9300F0C7E2 /* AddCustomSchedule.swift */; };
 		02854A832A1A4E3200F0C7E2 /* FItness PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A822A1A4E3200F0C7E2 /* FItness PlanViewController.swift */; };
+		02854A852A1AA01800F0C7E2 /* FitnessManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A842A1AA01800F0C7E2 /* FitnessManagementViewController.swift */; };
+		02854A872A1AA07700F0C7E2 /* ExeerciseFitnessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A862A1AA07700F0C7E2 /* ExeerciseFitnessViewController.swift */; };
+		02854A892A1AA9B300F0C7E2 /* FitnessPlanDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A882A1AA9B300F0C7E2 /* FitnessPlanDetailViewController.swift */; };
+		02854A8B2A1AAD7100F0C7E2 /* ExerciseFitness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02854A8A2A1AAD7100F0C7E2 /* ExerciseFitness.swift */; };
 		02890A122A0B7F7900B02C35 /* CatergoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */; };
 		0294A5422A10A2A600940D99 /* CustomCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */; };
 		0294A5442A10C4F100940D99 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0294A5432A10C4F100940D99 /* Header.swift */; };
@@ -77,6 +81,10 @@
 		02854A7E2A19CE4600F0C7E2 /* CustomScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomScheduleViewController.swift; sourceTree = "<group>"; };
 		02854A802A1A3F9300F0C7E2 /* AddCustomSchedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomSchedule.swift; sourceTree = "<group>"; };
 		02854A822A1A4E3200F0C7E2 /* FItness PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FItness PlanViewController.swift"; sourceTree = "<group>"; };
+		02854A842A1AA01800F0C7E2 /* FitnessManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessManagementViewController.swift; sourceTree = "<group>"; };
+		02854A862A1AA07700F0C7E2 /* ExeerciseFitnessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExeerciseFitnessViewController.swift; sourceTree = "<group>"; };
+		02854A882A1AA9B300F0C7E2 /* FitnessPlanDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FitnessPlanDetailViewController.swift; sourceTree = "<group>"; };
+		02854A8A2A1AAD7100F0C7E2 /* ExerciseFitness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseFitness.swift; sourceTree = "<group>"; };
 		02890A112A0B7F7900B02C35 /* CatergoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatergoryViewController.swift; sourceTree = "<group>"; };
 		0294A5412A10A2A600940D99 /* CustomCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCollectionViewCell.swift; sourceTree = "<group>"; };
 		0294A5432A10C4F100940D99 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -180,6 +188,8 @@
 				0281A9E22A17400700155643 /* CustomTextFields.swift */,
 				02E50E672A18158A00AECAC2 /* ExerciseViewCellTableViewCell.swift */,
 				02625DCE2A1908B0003B7431 /* ExerciseDetailViewTableViewCell.swift */,
+				02854A862A1AA07700F0C7E2 /* ExeerciseFitnessViewController.swift */,
+				02854A8A2A1AAD7100F0C7E2 /* ExerciseFitness.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -252,6 +262,8 @@
 				02854A7E2A19CE4600F0C7E2 /* CustomScheduleViewController.swift */,
 				02854A802A1A3F9300F0C7E2 /* AddCustomSchedule.swift */,
 				02854A822A1A4E3200F0C7E2 /* FItness PlanViewController.swift */,
+				02854A842A1AA01800F0C7E2 /* FitnessManagementViewController.swift */,
+				02854A882A1AA9B300F0C7E2 /* FitnessPlanDetailViewController.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -340,6 +352,7 @@
 			files = (
 				022C276E2A0ED1AF00277897 /* CustomTextField.swift in Sources */,
 				02E50E612A17D98500AECAC2 /* HeaderViewController.swift in Sources */,
+				02854A892A1AA9B300F0C7E2 /* FitnessPlanDetailViewController.swift in Sources */,
 				02854A832A1A4E3200F0C7E2 /* FItness PlanViewController.swift in Sources */,
 				02F2834E2A101BE4004B39AD /* GenderViewController.swift in Sources */,
 				022C27662A0EBF8300277897 /* SignInViewController.swift in Sources */,
@@ -347,6 +360,7 @@
 				022C276A2A0EC5BF00277897 /* AuthView.swift in Sources */,
 				02E50E5F2A17B8AA00AECAC2 /* ListViewController.swift in Sources */,
 				02890A122A0B7F7900B02C35 /* CatergoryViewController.swift in Sources */,
+				02854A872A1AA07700F0C7E2 /* ExeerciseFitnessViewController.swift in Sources */,
 				02AC37892A0815E0003792DC /* Extensions.swift in Sources */,
 				02625DCF2A1908B0003B7431 /* ExerciseDetailViewTableViewCell.swift in Sources */,
 				027959872A115FA30047F606 /* LabelView.swift in Sources */,
@@ -354,6 +368,7 @@
 				0294A5462A10F06A00940D99 /* CircularButtonView.swift in Sources */,
 				02C329722A0ABFFD0084B077 /* BMIViewController.swift in Sources */,
 				02E50E632A18011400AECAC2 /* Exercise.swift in Sources */,
+				02854A852A1AA01800F0C7E2 /* FitnessManagementViewController.swift in Sources */,
 				0294A5442A10C4F100940D99 /* Header.swift in Sources */,
 				0281A9E32A17400700155643 /* CustomTextFields.swift in Sources */,
 				021AC9602A19727400C0C426 /* VideoViewController.swift in Sources */,
@@ -363,6 +378,7 @@
 				02A482B12A1555540036C198 /* ModeViewController.swift in Sources */,
 				02E50E682A18158A00AECAC2 /* ExerciseViewCellTableViewCell.swift in Sources */,
 				02C3296E2A0ABF710084B077 /* HomeViewController.swift in Sources */,
+				02854A8B2A1AAD7100F0C7E2 /* ExerciseFitness.swift in Sources */,
 				02625DCD2A18E21B003B7431 /* DetailsViewController.swift in Sources */,
 				02854A812A1A3F9300F0C7E2 /* AddCustomSchedule.swift in Sources */,
 				0220B1D62A06B54A00706507 /* AppDelegate.swift in Sources */,

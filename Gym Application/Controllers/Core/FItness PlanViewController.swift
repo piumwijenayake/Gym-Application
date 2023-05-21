@@ -92,7 +92,8 @@ class FItness_PlanViewController: UIViewController {
            print("nav")
         case 1:
             // Navigate to the second view controller
-            print("nav2")
+            let vc = FitnessManagementViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         
         default:
             break

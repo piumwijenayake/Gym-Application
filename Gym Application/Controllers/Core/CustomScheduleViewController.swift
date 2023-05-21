@@ -27,39 +27,45 @@ class CustomScheduleViewController:UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         //title = "Custom Schedule"
+        let backgroundImage = UIImage(named: "catergory0")
+        let backgroundImageView = UIImageView(image: backgroundImage)
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.frame = view.bounds
+        view.addSubview(backgroundImageView)
         
         // Create the text field
         textField = UITextField()
         //headerView.translatesAutoresizingMaskIntoConstraints = false
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.borderStyle = .roundedRect
+        
         // textField.backgroundColor = .white
         
         Header = UILabel()
         Header.translatesAutoresizingMaskIntoConstraints = false
         Header.text = "Custom Schedule"
         Header.textAlignment = .center
-        Header.textColor = .black
-        Header.font = UIFont.systemFont(ofSize: 12)
+        Header.textColor = .white
+        Header.font = UIFont.systemFont(ofSize: 23)
         subLabel = UILabel()
         subLabel.translatesAutoresizingMaskIntoConstraints = false
         subLabel.text = "Create Your Own Schedule"
         subLabel.textAlignment = .center
-        subLabel.textColor = .black
+        subLabel.textColor = .white
         
         // Create the label
         label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Label below the text field"
+        label.text = "Enter Description"
         label.textAlignment = .center
-        label.textColor = .black
+        label.textColor = .white
         
         
         datepickLabel = UILabel()
         datepickLabel.translatesAutoresizingMaskIntoConstraints = false
         datepickLabel.text = "Date To Workout"
         datepickLabel.textAlignment = .center
-        datepickLabel.textColor = .black
+        datepickLabel.textColor = .white
         
         view.addSubview(Header)
         view.addSubview(subLabel)
@@ -71,6 +77,8 @@ class CustomScheduleViewController:UIViewController {
         datePicker = UIDatePicker()
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         datePicker.datePickerMode = .date
+        datePicker.backgroundColor = .white
+        
         view.addSubview(datePicker)
         
         // Create the label to display selected date
@@ -86,22 +94,24 @@ class CustomScheduleViewController:UIViewController {
         timePickerLabel.translatesAutoresizingMaskIntoConstraints = false
         timePickerLabel.text = "Workout Time"
         timePickerLabel.textAlignment = .center
-        timePickerLabel.textColor = .black
+        timePickerLabel.textColor = .white
         timePicker = UIDatePicker()
         timePicker.translatesAutoresizingMaskIntoConstraints = false
         timePicker.datePickerMode = .time
+        timePicker.backgroundColor = .white
         view.addSubview(timePickerLabel)
         view.addSubview(timePicker)
         button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Add", for: .normal)
-        button.backgroundColor = .blue
+        button.backgroundColor = .white
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         view.addSubview(button)
         viewButton = UIButton(type: .system)
         viewButton.translatesAutoresizingMaskIntoConstraints = false
-        viewButton.setTitle("Add", for: .normal)
-        viewButton.backgroundColor = .blue
+        viewButton.setTitle("View", for: .normal)
+        viewButton.backgroundColor = .black
+        viewButton.tintColor = .white
         viewButton.addTarget(self, action: #selector(buttonOpened), for: .touchUpInside)
         view.addSubview(viewButton)
         
@@ -126,7 +136,7 @@ class CustomScheduleViewController:UIViewController {
             textField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant:-20),
             //Label
             datePicker.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 16),
-            datepickLabel.trailingAnchor.constraint(equalTo: datePicker.leadingAnchor, constant: 90),
+            datepickLabel.trailingAnchor.constraint(equalTo: datePicker.leadingAnchor, constant: 30),
             datepickLabel.centerYAnchor.constraint(equalTo: datePicker.centerYAnchor),
             datepickLabel.widthAnchor.constraint(equalToConstant: 200),
             
@@ -135,13 +145,12 @@ class CustomScheduleViewController:UIViewController {
             
             datePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             datePicker.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 20),
-            datePicker.widthAnchor.constraint(equalToConstant: 200),
+            datePicker.widthAnchor.constraint(equalToConstant: 90),
             
-            selectedDateLabel.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 16),
-            selectedDateLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+           
             
             timePickerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -10),
-            timePickerLabel.trailingAnchor.constraint(equalTo: timePicker.leadingAnchor, constant: 80),
+            timePickerLabel.trailingAnchor.constraint(equalTo: timePicker.leadingAnchor, constant: 20),
             timePickerLabel.centerYAnchor.constraint(equalTo: timePicker.centerYAnchor),
             timePickerLabel.widthAnchor.constraint(equalToConstant: 200),
             
